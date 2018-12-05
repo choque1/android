@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgrestaurant"
+        android:layout_width="137dp"
+        android:layout_height="49dp"
+        android:background="@mipmap/ic_launcher" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/restaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurant"
+            android:textColor="#ff0000"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/NIT2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="120dp"
+            android:text="NIT"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/property2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/restaurant"
+            android:layout_marginTop="8dp"
+            android:text="Propietario"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/phone2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/NIT2"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="8dp"
+            android:text="Telefono"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/phone2"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="3dp"
+            android:text="Calle"
+            android:textSize="20dp"
+            android:id="@+id/street2"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

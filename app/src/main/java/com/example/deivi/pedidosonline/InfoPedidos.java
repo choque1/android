@@ -1,0 +1,59 @@
+package com.example.deivi.pedidosonline;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import collections.item;
+
+public class InfoPedidos extends AppCompatActivity {
+    ImageView image1;
+    TextView title2,descripcion1;
+    String titulo,descripcion,img;
+    RadioGroup group;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate (savedInstanceState);
+        setContentView (R.layout.activity_info_pedidos);
+        image1 = findViewById (R.id.image1);
+        title2 = findViewById (R.id.title1);
+        descripcion1 = findViewById (R.id.descripcion1);
+        informacion();
+        group = findViewById(R.id.group);
+        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.enviado){
+                    Toast.makeText(getApplicationContext(), "enviado", Toast.LENGTH_SHORT).show();
+                }
+                if (checkedId == R.id.proceso){
+                    Toast.makeText(getApplicationContext(), "proceso", Toast.LENGTH_SHORT).show();
+                }
+                if (checkedId == R.id.espera){
+                    Toast.makeText(getApplicationContext(), "espera", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
+
+
+
+    }
+    public void informacion(){
+        Intent intent = getIntent();
+        titulo = intent.getStringExtra("Titulo");
+        descripcion = intent.getStringExtra("Descripcion");
+        img = intent.getStringExtra("image");
+        title2.setText(titulo);
+        descripcion1.setText(descripcion);
+        image1.setImageURI(Uri.parse(img));
+    }
+}

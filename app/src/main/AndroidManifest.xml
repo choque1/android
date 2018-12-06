@@ -31,7 +31,6 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".CrearMenu" />
         <activity android:name=".VerMenu" />
         <activity android:name=".EditarMenu" />
         <activity android:name=".Editar1" />

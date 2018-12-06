@@ -5,5 +5,6 @@ public class Data {
 
     public static  String  HOST  = "http://192.168.1.107:7777/api/v1.0";
     public static  String  REGISTER_RESTORANT = HOST + "/restaurant";
+    public static  String  REGISTER_MENUS = HOST + "/menus";
 
 }

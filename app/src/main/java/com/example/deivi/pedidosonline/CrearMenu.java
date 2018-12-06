@@ -1,49 +1,45 @@
 package com.example.deivi.pedidosonline;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.icu.text.SimpleDateFormat;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.deivi.pedidosonline.utils.Data;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.Manifest.permission_group.CAMERA;
+import cz.msebera.android.httpclient.Header;
 
 public class CrearMenu extends AppCompatActivity {
     Button aceptar,foto;
+
     EditText producto,precio,descripcion;
     ImageView imagen;
     String path;
@@ -57,13 +53,14 @@ public class CrearMenu extends AppCompatActivity {
         precio = findViewById(R.id.precio);
         descripcion = findViewById(R.id.descripcion);
         aceptar = findViewById (R.id.aceptar);
+        imagen = findViewById (R.id.fotomenu);
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                sedData();
             }
         });
-        imagen = findViewById (R.id.fotomenu);
 
         if (ContextCompat.checkSelfPermission(CrearMenu.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(CrearMenu.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -157,6 +154,74 @@ public class CrearMenu extends AppCompatActivity {
 
         }
 
+    }
+
+    public void sedData(){
+        TextView nombre  = findViewById(R.id.producto);
+        TextView precio  = findViewById(R.id.precio);
+        TextView descripcion = findViewById(R.id.descripcion);
+
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.addHeader("authorization", Data.TOKEN);
+
+
+        RequestParams params = new RequestParams();
+
+        params.add("nombre", nombre.getText().toString());
+        params.add("precio", precio.getText().toString());
+        params.add("descripcion",descripcion.getText().toString());
+
+        client .post(Data.REGISTER_MENUS, params, new JsonHttpResponseHandler() {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONArray) was not overriden, but callback was received");
+
+
+
+                AlertDialog alertDialog = new AlertDialog.Builder(CrearMenu.this).create();
+                try {
+                    int resp = response.getInt("resp");
+
+                    if(resp==200){
+                        String msn = response.getString("msn");
+                        JSONObject json=response.getJSONObject("dato");
+                        final String producto_resp=json.getString("nombre");
+                        final String precio_resp=json.getString("precio");
+                        final String descripcion_resp=json.getString("descripcion");
+
+                        alertDialog.setTitle("Mensaje");
+                        alertDialog.setMessage(msn);
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent =new Intent(CrearMenu.this, InfoRestaurant.class);
+                                intent.putExtra("nombre",producto_resp);
+                                intent.putExtra("precio",precio_resp);
+                                intent.putExtra("descripcion",descripcion_resp);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                        alertDialog.show();
+                    }else{
+                        alertDialog.setTitle("Mensaje");
+                        alertDialog.setMessage("Error al tratar de crear nuevo menus");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        alertDialog.show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
     }
 
 }

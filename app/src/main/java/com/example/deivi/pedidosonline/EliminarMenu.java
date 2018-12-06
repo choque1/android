@@ -44,13 +44,20 @@ public class EliminarMenu extends AppCompatActivity {
         final listAdapter adapter1 = new listAdapter(this, list_data2);
         list3 = this.findViewById (R.id.elist);
         list3.setAdapter (adapter1);
-        list3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* list3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 list_data2.remove(position);
                 adapter1.notifyDataSetChanged();
             }
-        });
+        });*/
+       list3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               list_data2.remove(position);
+               adapter1.notifyDataSetChanged();
+           }
+       });
 
     }
 }

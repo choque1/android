@@ -44,6 +44,7 @@ public class Carrito extends AppCompatActivity {
         item item2 = new item();
         item2.setNombrepro ("papa");
         item2.setDescription ("Descripcion");
+        //item2.setPrecio("56");
         StaticData.LISTAPARCIAL.add (item2);
         list1 = findViewById (R.id.pedidos);
         adapter = new listAdapter(this, StaticData.LISTAPARCIAL);

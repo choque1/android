@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditarCliente">
+    tools:context=".EditarAdmi">
 
     <ImageView
-        android:id="@+id/fotoperfil"
+        android:id="@+id/fotoperfil2"
         android:layout_width="127dp"
         android:layout_height="132dp"
         android:layout_marginTop="8dp"
@@ -17,7 +17,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <Button
-        android:id="@+id/guardar"
+        android:id="@+id/guardar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -32,31 +32,31 @@
         app:layout_constraintVertical_bias="0.729" />
 
     <EditText
-        android:id="@+id/nombre3"
+        android:id="@+id/nombre4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Nombre"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ci3"
+        android:id="@+id/ci4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="CI"
-        android:inputType="numberDecimal"
+        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombre3" />
+        app:layout_constraintTop_toBottomOf="@+id/nombre4" />
 
     <EditText
-        android:id="@+id/phone3"
+        android:id="@+id/phone4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -65,10 +65,10 @@
         android:hint="Telefono"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ci3" />
+        app:layout_constraintTop_toBottomOf="@+id/ci4" />
 
     <EditText
-        android:id="@+id/correo3"
+        android:id="@+id/correo4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -77,10 +77,10 @@
         android:hint="Correo"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone3" />
+        app:layout_constraintTop_toBottomOf="@+id/phone4" />
 
     <EditText
-        android:id="@+id/tipo3"
+        android:id="@+id/tipo4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -89,5 +89,5 @@
         android:hint="Tipo"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correo3" />
+        app:layout_constraintTop_toBottomOf="@+id/correo4" />
 </android.support.constraint.ConstraintLayout>

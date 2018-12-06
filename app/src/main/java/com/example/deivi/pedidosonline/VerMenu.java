@@ -1,7 +1,11 @@
 package com.example.deivi.pedidosonline;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import java.util.ArrayList;
 import collections.item;
@@ -9,7 +13,7 @@ import collections.listAdapter;
 
 public class VerMenu extends AppCompatActivity {
     ListView listamenu;
-
+    ImageButton atras;
 
     ArrayList<item> list_data = new ArrayList<item> ();
 
@@ -17,6 +21,14 @@ public class VerMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_menu);
+        atras = findViewById(R.id.imgatras);
+        atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(VerMenu.this,InfoRestaurant.class));
+                finish();
+            }
+        });
         for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;

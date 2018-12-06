@@ -7,22 +7,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class EditarCliente extends AppCompatActivity {
-    Button guardar;
+public class EditarAdmi extends AppCompatActivity {
+    Button guardar1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editar_cliente);
-        guardar = findViewById(R.id.guardar);
-        guardar.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_editar_admi);
+        guardar1 = findViewById(R.id.guardar1);
+        guardar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditarCliente.this,Cliente.class));
+                startActivity(new Intent(EditarAdmi.this,Admi.class));
+                Toast.makeText(EditarAdmi.this,"Se guardo correctamente los datos",Toast.LENGTH_SHORT).show();
                 finish();
-                Toast.makeText(EditarCliente.this,"Se ha guardado los datos nuevos",Toast.LENGTH_SHORT).show();
-
-
             }
         });
     }

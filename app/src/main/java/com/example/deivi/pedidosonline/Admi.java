@@ -1,18 +1,14 @@
 package com.example.deivi.pedidosonline;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 public class Admi extends AppCompatActivity {
-    Button crearres,veres,editcuenta,elimcuenta,pedido;
+    Button crearres,veres;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,41 +16,17 @@ public class Admi extends AppCompatActivity {
         setContentView(R.layout.activity_admi);
         crearres =  findViewById(R.id.crestaurant);
         veres =  findViewById(R.id.verestaurant);
-        editcuenta = findViewById(R.id.edicuenta1);
-        elimcuenta = findViewById(R.id.elicuenta1);
-        pedido = findViewById(R.id.irpedidos);
-        editcuenta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Admi.this,EditarAdmi.class));
-            }
-        });
-        elimcuenta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Admi.this);
 
-                builder.setTitle ("Eliminar Cuenta")
-                        .setMessage("Esta Seguro de eliminar su cuenta")
-
-                        .setPositiveButton ("Aceptar", new DialogInterface.OnClickListener () {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(Admi.this,Login.class));
-                                Toast.makeText(Admi.this,"Se ha eliminado su cuenta", Toast.LENGTH_SHORT).show();
-                                finish();
-
-                            }
-                        }).setNegativeButton ("Cancelar", new DialogInterface.OnClickListener () {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                Dialog dialog = builder.create ();
-                dialog.show ();
-            }
-        });
+        final TextView nombre=(TextView) findViewById(R.id.nombre2);
+        nombre.setText( getIntent().getExtras().getString("nombre"));
+        final TextView ci=(TextView) findViewById(R.id.ci2);
+        ci.setText( getIntent().getExtras().getString("ci"));
+        final TextView telefono=(TextView) findViewById(R.id.telefono2);
+        telefono.setText( getIntent().getExtras().getString("telefono"));
+        final TextView email=(TextView) findViewById(R.id.correo2);
+        email.setText( getIntent().getExtras().getString("email"));
+        final TextView tipo=(TextView) findViewById(R.id.tipo);
+        tipo.setText( getIntent().getExtras().getString("tipo"));
 
         crearres.setOnClickListener(new View.OnClickListener() {
             @Override

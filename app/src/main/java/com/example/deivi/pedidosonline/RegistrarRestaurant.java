@@ -40,6 +40,7 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
     private TextView street;
     private Button crear;
     private LatLng mainposition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,7 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
         geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
         street = findViewById(R.id.street);
         crear = findViewById(R.id.crear);
+
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,23 +83,51 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
         params.add("lat", String.valueOf( mainposition.latitude));
         params.add("lon", String.valueOf( mainposition.longitude));
 
-
         client .post(Data.REGISTER_RESTORANT, params, new JsonHttpResponseHandler() {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONArray) was not overriden, but callback was received");
+
+
+
                 AlertDialog alertDialog = new AlertDialog.Builder(RegistrarRestaurant.this).create();
                 try {
+                    int resp = response.getInt("resp");
+
+                    if(resp==200){
                     String msn = response.getString("msn");
-                    alertDialog.setTitle("RESPONSE SERVER");
+                    JSONObject json=response.getJSONObject("dato");
+                    final String name_resp=json.getString("nombre");
+                    final String calle_resp=json.getString("calle");
+                    final String tel_resp=json.getString("telefono");
+                    final String propietario_resp=json.getString("propietario");
+                    final String _id_reps=json.getString("_id");
+                    alertDialog.setTitle("Mensaje");
                     alertDialog.setMessage(msn);
                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(RegistrarRestaurant.this, InfoRestaurant.class));
+                            Intent intent =new Intent(RegistrarRestaurant.this, InfoRestaurant.class);
+                            intent.putExtra("nombre",name_resp);
+                            intent.putExtra("calle",calle_resp);
+                            intent.putExtra("telefono",tel_resp);
+                            intent.putExtra("propietario",propietario_resp);
+                            intent.putExtra("_id",_id_reps);
+                            startActivity(intent);
                             finish();
                         }
                     });
                     alertDialog.show();
+                    }else{
+                        alertDialog.setTitle("Mensaje");
+                        alertDialog.setMessage("Error al tratar de crear nuevo restaurant");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        alertDialog.show();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

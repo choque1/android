@@ -21,9 +21,6 @@ public class InfoPedidos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_info_pedidos);
-        image1 = findViewById (R.id.image1);
-        title2 = findViewById (R.id.title1);
-        descripcion1 = findViewById (R.id.descripcion1);
         informacion();
         group = findViewById(R.id.group);
         group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

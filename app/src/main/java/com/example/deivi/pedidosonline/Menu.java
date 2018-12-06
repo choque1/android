@@ -29,8 +29,9 @@ public class Menu extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
-            p.title = "Titulo" + i;
+            p.nombrepro= "papa" + i;
             p.description = "Descripcion" + i;
+            p.precio = "precio"+i;
             p.url = "image" + i;
             list_data.add (p);
 
@@ -54,7 +55,7 @@ public class Menu extends AppCompatActivity {
 
 
                 Intent i = new Intent(Menu.this, Carrito.class);
-                i.putExtra ("Titulo", item.title);
+                i.putExtra ("papa", item.nombrepro);
                 i.putExtra ("Descripcion", item.description );
                 i.putExtra ("image",item.url);
                 finish();

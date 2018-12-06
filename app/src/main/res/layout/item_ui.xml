@@ -13,19 +13,21 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <TextView
+            android:id="@+id/nomproduc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Titulo de Prueba"
-            android:textSize="20dp"
+            android:text="Nombre producto"
             android:textColor="#ff0000"
-            android:id="@+id/titletxt1"/>
+            android:textSize="20dp" />
+
         <TextView
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hola amigos"
-            android:id="@+id/description"
-            android:layout_below="@+id/titletxt1"/>
+            android:layout_below="@+id/nomproduc"
+            android:text="Descripcion" />
 
         <TextView
             android:id="@+id/prec"
@@ -34,8 +36,21 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="14dp"
             android:layout_marginTop="12dp"
-            android:layout_toEndOf="@+id/titletxt1"
-            android:text="Precio" />
+            android:layout_toEndOf="@+id/nomproduc"
+            android:text="Precio"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="14dp"
+            android:layout_toEndOf="@+id/prec"
+            android:text="Bs" />
 
     </RelativeLayout>
 

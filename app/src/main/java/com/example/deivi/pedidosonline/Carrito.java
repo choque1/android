@@ -42,12 +42,13 @@ public class Carrito extends AppCompatActivity {
         }
         bundle = getIntent().getExtras();
         item item2 = new item();
-        item2.setTitle ("Titulo");
+        item2.setNombrepro ("papa");
         item2.setDescription ("Descripcion");
         StaticData.LISTAPARCIAL.add (item2);
         list1 = findViewById (R.id.pedidos);
         adapter = new listAdapter(this, StaticData.LISTAPARCIAL);
         list1.setAdapter (adapter);
+
         list1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -43,14 +43,16 @@ public class listAdapter extends BaseAdapter{
             LayoutInflater inflate = (LayoutInflater) this.context.getSystemService (Context.LAYOUT_INFLATER_SERVICE);
             view = inflate.inflate (R.layout.item_ui, null);
         }
-        TextView titulo = (TextView)view.findViewById (R.id.titletxt1);
+        TextView nombre = (TextView)view.findViewById (R.id.nomproduc);
         TextView descripcion = (TextView)view.findViewById (R.id.description);
         TextView precio = view.findViewById(R.id.prec);
+        TextView bs = view.findViewById(R.id.text);
         ImageView image = (ImageView) view.findViewById (R.id.imagesource);
         Glide.with (this.context).load (this.items.get(i).getUrl ()).into (image);
-        titulo.setText (this.items.get (i).getTitle ());
+        nombre.setText (this.items.get (i).getNombrepro ());
         descripcion.setText (this.items.get (i).getDescription ());
         precio.setText(this.items.get(i).getPrecio());
+        bs.setText("Bs");
 
         return view;
     }

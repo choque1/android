@@ -32,7 +32,7 @@ public class VerMenu extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
-            p.title = "Titulo" + i;
+            p.nombrepro = "Titulo" + i;
             p.description = "Descripcion" + i;
             p.url = "image" + i;
             list_data.add (p);

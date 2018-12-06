@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import collections.restaurantAdapter;
 
 public class Lugar extends AppCompatActivity {
     ListView list;
+    ImageButton atras3;
 
     ArrayList<item2> list_data1 = new ArrayList<item2> ();
 
@@ -23,6 +25,14 @@ public class Lugar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lugar);
+        atras3 = findViewById(R.id.atrs2);
+        atras3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Lugar.this,Cliente.class));
+                finish();
+            }
+        });
         for (int i = 0; i < 100; i++) {
             item2 p1 = new item2();
             p1.id = i;

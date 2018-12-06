@@ -4,13 +4,13 @@ package collections;
 
 public class item {
 
-    public String title ;
+    public String nombrepro ;
     public String description ;
     public String precio;
     public String url ;
     public int id ;
-    public void setTitle(String title) {
-        this . title = title;
+    public void setNombrepro(String nombrepro) {
+        this . nombrepro = nombrepro;
     }
     public void setDescription(String description) {
         this . description = description;
@@ -27,14 +27,15 @@ public class item {
     }
 
     public String getPrecio() {
-        return this.precio;
+        return
+                this.precio;
     }
 
     public int getId() {
         return this . id ;
     }
-    public String getTitle() {
-        return this . title ;
+    public String getNombrepro() {
+        return this . nombrepro ;
     }
     public String getDescription() {
         return this . description ;

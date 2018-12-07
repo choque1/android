@@ -27,7 +27,7 @@ public class Pedidos extends AppCompatActivity {
             for (int i = 0; i < 100; i++) {
                 item p1 = new item();
                 p1.id = i;
-                p1.nombrepro = "Titulo" + i;
+                p1.nombre = "Titulo" + i;
                 p1.description = "Descripcion" + i;
                 p1.url = "image" + i;
                 list_data1.add (p1);
@@ -45,7 +45,7 @@ public class Pedidos extends AppCompatActivity {
 
 
                     Intent i = new Intent(Pedidos.this, InfoPedidos.class);
-                    i.putExtra ("Titulo", item2.getNombrepro());
+                    i.putExtra ("Titulo", item2.getNombre());
                     i.putExtra ("Descripcion", item2.getDescription());
                     i.putExtra ("image",item2.getUrl());
                     startActivity(i);

@@ -1,13 +1,9 @@
 package com.example.deivi.pedidosonline;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -39,7 +35,7 @@ public class EditarMenu extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
-            p.nombrepro = "Titulo" + i;
+            p.nombre = "Titulo" + i;
             p.description = "Descripcion" + i;
             p.url = "image" + i;
             list_data.add (p);
@@ -57,7 +53,7 @@ public class EditarMenu extends AppCompatActivity {
 
 
                                 Intent i = new Intent(EditarMenu.this, Editar1.class);
-                                i.putExtra ("Titulo", item.nombrepro);
+                                i.putExtra ("Titulo", item.nombre);
                                 i.putExtra ("Descripcion", item.description );
                                 i.putExtra ("image",item.url);
                                 finish();

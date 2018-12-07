@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import java.util.ArrayList;
+
 import collections.item;
 import collections.listAdapter;
 
@@ -32,7 +32,7 @@ public class VerMenu extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
-            p.nombrepro = "Titulo" + i;
+            p.nombre = "Titulo" + i;
             p.description = "Descripcion" + i;
             p.url = "image" + i;
             list_data.add (p);

@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Admi extends AppCompatActivity {
-    Button crearres,veres;
+    Button crearres,veres,editar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +16,7 @@ public class Admi extends AppCompatActivity {
         setContentView(R.layout.activity_admi);
         crearres =  findViewById(R.id.crestaurant);
         veres =  findViewById(R.id.verestaurant);
+        editar = findViewById(R.id.edicuenta1);
 
         final TextView nombre=(TextView) findViewById(R.id.nombre2);
         nombre.setText( getIntent().getExtras().getString("nombre"));
@@ -39,6 +40,13 @@ public class Admi extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Admi.this,InfoRestaurant.class));
+                finish();
+            }
+        });
+        editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Admi.this,EditarAdmi.class));
                 finish();
             }
         });

@@ -35,8 +35,9 @@ public class EliminarMenu extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
-            p.nombrepro = "Titulo" + i;
+            p.nombre = "Titulo" + i;
             p.description = "Descripcion" + i;
+            p.precio = "precio" +i;
             p.url = "image" + i;
             list_data2.add (p);
 

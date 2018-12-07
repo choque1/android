@@ -18,7 +18,7 @@ import collections.item;
 import collections.listAdapter;
 
 public class Menu extends AppCompatActivity {
-    ListView listmenu;
+    ListView lista;
 
     ArrayList<item> list_data = new ArrayList<item> ();
 
@@ -29,51 +29,56 @@ public class Menu extends AppCompatActivity {
         for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
-            p.nombrepro = "Titulo" + i;
+            p.nombre = "Titulo" + i;
             p.description = "Descripcion" + i;
-            p.precio = "15" +i;
+            p.precio = "precio" +i;
             p.url = "image" + i;
             list_data.add (p);
 
         }
         listAdapter adapter = new listAdapter(this, list_data);
-        listmenu = this.findViewById (R.id.lismenu);
-        listmenu.setAdapter (adapter);
-        listmenu.setOnItemClickListener (new AdapterView.OnItemClickListener () {
+        lista = findViewById(R.id.lismenu);
+        lista.setAdapter (adapter);
+
+        lista.setOnItemClickListener (new AdapterView.OnItemClickListener () {
             @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                final item item = list_data.get(position);
-                AlertDialog.Builder builder = new AlertDialog.Builder(Menu.this);
+                final item item = list_data.get (position);
+                AlertDialog.Builder builder = new AlertDialog.Builder (Menu.this);
                 LayoutInflater inflater = (Menu.this).getLayoutInflater();
-                builder.setTitle("Cantidad")
-                        .setView(inflater.inflate(R.layout.dialog, null))
+                builder.setTitle ("Cantidad")
+                        .setView (inflater.inflate(R.layout.dialogo,null))
 
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        .setPositiveButton ("Aceptar", new DialogInterface.OnClickListener () {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
 
-                                Intent i = new Intent(Menu.this, Carrito.class);
-                                i.putExtra("Titulo", item.nombrepro);
-                                i.putExtra("Descripcion", item.description);
-                                i.putExtra("56", item.precio);
-                                i.putExtra("image", item.url);
+                                Intent i = new Intent(Menu.this,Carrito.class);
+                                i.putExtra ("Titulo", item.nombre);
+                                i.putExtra ("Descripcion", item.description );
+                                i.putExtra("precio",item.precio);
+                                i.putExtra ("image",item.url);
                                 finish();
                                 startActivity(i);
 
 
+
                             }
-                        }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        }).setNegativeButton ("Cancelar", new DialogInterface.OnClickListener () {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 });
-                Dialog dialog = builder.create();
-                dialog.show();
+                Dialog dialog = builder.create ();
+                dialog.show ();
+
+
             }
         });
+
 
     }
 }

@@ -27,9 +27,9 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         btn_login = findViewById (R.id.login);
-        final TextView email=(TextView)findViewById(R.id.correo);
-        final TextView password=(TextView)findViewById(R.id.password);
-        email.setText( getIntent().getExtras().getString("email"));
+       // final TextView email=(TextView)findViewById(R.id.correo);
+       // final TextView password=(TextView)findViewById(R.id.password);
+       // email.setText( getIntent().getExtras().getString("email"));
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,12 +45,12 @@ public class Login extends AppCompatActivity {
         TextView correo  = findViewById(R.id.correo);
         TextView password  = findViewById(R.id.password);
 
-        AsyncHttpClient client = new AsyncHttpClient();
+        AsyncHttpClient login = new AsyncHttpClient();
 
         RequestParams params = new RequestParams();
         params.add("email", correo.getText().toString());
         params.add("password", password.getText().toString());
-        client.post(Data.REGISTER_LOGIN, params, new JsonHttpResponseHandler() {
+        login.post(Data.REGISTER_LOGIN, params, new JsonHttpResponseHandler() {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONArray) was not overriden, but callback was received");
                 AlertDialog alertDialog = new AlertDialog.Builder(Login.this).create();
@@ -89,8 +89,9 @@ public class Login extends AppCompatActivity {
                         }
 
 
+
                         Toast.makeText(Login.this, "Login correctamente: "+ token, Toast.LENGTH_SHORT).show();
-                    }else{
+                    }else {
                         Toast.makeText(Login.this, "error de logueo", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {

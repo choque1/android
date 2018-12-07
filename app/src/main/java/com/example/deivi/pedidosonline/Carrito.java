@@ -42,7 +42,7 @@ public class Carrito extends AppCompatActivity {
         }
         bundle = getIntent().getExtras();
         item item2 = new item();
-        item2.setNombrepro ("papa");
+        item2.setNombre ("papa");
         item2.setDescription ("Descripcion");
         //item2.setPrecio("56");
         StaticData.LISTAPARCIAL.add (item2);

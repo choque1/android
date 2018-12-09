@@ -10,21 +10,20 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import collections.item;
-import collections.listAdapter;
+
 
 public class Pedidos extends AppCompatActivity {
 
 
         ListView list;
 
-        ArrayList<item> list_data1 = new ArrayList<item> ();
+        //ArrayList<item> list_data1 = new ArrayList<item> ();
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate (savedInstanceState);
             setContentView (R.layout.activity_pedidos);
-            for (int i = 0; i < 100; i++) {
+           /* for (int i = 0; i < 100; i++) {
                 item p1 = new item();
                 p1.id = i;
                 p1.nombre = "Titulo" + i;
@@ -50,7 +49,7 @@ public class Pedidos extends AppCompatActivity {
                     i.putExtra ("image",item2.getUrl());
                     startActivity(i);
                 }
-            });
+            });*/
 
     }
 }

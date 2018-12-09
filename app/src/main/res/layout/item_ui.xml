@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/titletxt1"
+            android:id="@+id/nompro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -28,22 +28,22 @@
             android:layout_height="wrap_content"
             android:text="hola amigos"
             android:id="@+id/description"
-            android:layout_below="@+id/titletxt1"/>
+            android:layout_below="@+id/nompro"/>
 
         <TextView
             android:id="@+id/precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/titletxt1"
+            android:layout_alignBottom="@+id/nompro"
             android:layout_marginStart="22dp"
-            android:layout_toEndOf="@+id/titletxt1"
+            android:layout_toEndOf="@+id/nompro"
             android:text="precio" />
 
         <TextView
             android:id="@+id/bs"
             android:layout_width="25dp"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/titletxt1"
+            android:layout_alignBaseline="@+id/nompro"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="11dp"
             android:layout_marginEnd="3dp"

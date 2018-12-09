@@ -8,14 +8,13 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import java.util.ArrayList;
 
-import collections.item;
-import collections.listAdapter;
+
 
 public class VerMenu extends AppCompatActivity {
     ListView listamenu;
     ImageButton atras;
 
-    ArrayList<item> list_data = new ArrayList<item> ();
+//    ArrayList<item> list_data = new ArrayList<item> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,7 @@ public class VerMenu extends AppCompatActivity {
                 finish();
             }
         });
-        for (int i = 0; i < 100; i++) {
+      /*  for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
             p.nombre = "Titulo" + i;
@@ -40,6 +39,6 @@ public class VerMenu extends AppCompatActivity {
         }
         listAdapter adapter = new listAdapter(this, list_data);
         listamenu = this.findViewById (R.id.listamenu);
-        listamenu.setAdapter (adapter);
+        listamenu.setAdapter (adapter);*/
     }
 }

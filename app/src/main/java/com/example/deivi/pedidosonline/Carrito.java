@@ -11,14 +11,13 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import collections.StaticData;
-import collections.item;
-import collections.listAdapter;
+
 
 public class Carrito extends AppCompatActivity {
     Button pedir;
     ListView list1;
     Bundle bundle ;
-    listAdapter adapter;
+  //  listAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class Carrito extends AppCompatActivity {
         });
 
     }
-    @Override
+    /*@Override
     protected void onResume() {
         if (StaticData.LISTAPARCIAL == null){
             StaticData.LISTAPARCIAL = new ArrayList<>();
@@ -63,5 +62,5 @@ public class Carrito extends AppCompatActivity {
 
 
         super.onResume ();
-    }
+    }*/
 }

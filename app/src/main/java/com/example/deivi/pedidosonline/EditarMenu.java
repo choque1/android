@@ -11,14 +11,12 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import collections.item;
-import collections.listAdapter;
 
 public class EditarMenu extends AppCompatActivity {
     ListView list;
     ImageButton atras4;
 
-    ArrayList<item> list_data = new ArrayList<item> ();
+    //ArrayList<item> list_data = new ArrayList<item> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +30,7 @@ public class EditarMenu extends AppCompatActivity {
                 finish();
             }
         });
-        for (int i = 0; i < 100; i++) {
+        /*for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
             p.nombre = "Titulo" + i;
@@ -61,7 +59,7 @@ public class EditarMenu extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
     }
 }

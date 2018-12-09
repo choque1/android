@@ -10,14 +10,13 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import collections.item;
-import collections.listAdapter;
+
 
 public class EliminarMenu extends AppCompatActivity {
     ListView list3;
     ImageButton atras2;
 
-    ArrayList<item> list_data2 = new ArrayList<item> ();
+    //ArrayList<item> list_data2 = new ArrayList<item> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,7 @@ public class EliminarMenu extends AppCompatActivity {
             }
         });
 
-        for (int i = 0; i < 100; i++) {
+       /* for (int i = 0; i < 100; i++) {
             item p = new item();
             p.id = i;
             p.nombre = "Titulo" + i;
@@ -52,13 +51,13 @@ public class EliminarMenu extends AppCompatActivity {
                 adapter1.notifyDataSetChanged();
             }
         });*/
-       list3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /*list3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
            @Override
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                list_data2.remove(position);
                adapter1.notifyDataSetChanged();
            }
-       });
+       });*/
 
     }
 }

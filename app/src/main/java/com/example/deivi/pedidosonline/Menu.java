@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -28,6 +30,10 @@ import cz.msebera.android.httpclient.Header;
 
 public class Menu extends AppCompatActivity {
    ListView lista;
+   EditText c;
+   TextView p;
+   String precios ,cant, total1;
+   Double pre,total,can;
 
    ArrayList<Menus> list_data = new ArrayList<Menus> ();
 
@@ -41,29 +47,42 @@ public class Menu extends AppCompatActivity {
             @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                final Menus item = list_data.get (position);
+                final Menus menus= list_data.get (position);
                 AlertDialog.Builder builder = new AlertDialog.Builder (Menu.this);
                 LayoutInflater inflater = (Menu.this).getLayoutInflater();
-                builder.setTitle ("Cantidad")
-                        .setView (inflater.inflate(R.layout.dialogo,null))
+                builder.setTitle("Cantidad");
+                builder.setView(inflater.inflate(R.layout.dialogo, null));
+                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        c = findViewById(R.id.cantidad);
+                        cant = c.getText().toString();
+                        p = findViewById(R.id.precio);
+                        precios = p.getText().toString();
+                        pre = Double.parseDouble(precios);
+                        can = Double.parseDouble(cant);
+                        total = pre * can;
+                        total1 = String.valueOf(total);
+                        p.setText(total1);
+                        menus.setPrecio(total1);
+                        list_data.add(menus);
+                        MenuAdapter adapter =  new MenuAdapter(Menu.this,list_data);
+                        lista.setAdapter(adapter);
 
-                        .setPositiveButton ("Aceptar", new DialogInterface.OnClickListener () {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
 
 
-                                Intent i = new Intent(Menu.this,Carrito.class);
-                                i.putExtra ("Titulo", item.nombre);
-                                i.putExtra ("Descripcion", item.descripcion );
-                                i.putExtra("precio",item.precio);
-                                i.putExtra ("image",item.foto);
-                                finish();
-                                startActivity(i);
+                        Intent i = new Intent(Menu.this, Carrito.class);
+                        i.putExtra("nombre", menus.nombre);
+                        i.putExtra("descripcion", menus.descripcion);
+                        i.putExtra("precio", menus.precio);
+                        // i.putExtra ("image",item.foto);
+                        finish();
+                        startActivity(i);
 
 
-
-                            }
-                        }).setNegativeButton ("Cancelar", new DialogInterface.OnClickListener () {
+                    }
+                });
+                builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -97,7 +116,7 @@ public class Menu extends AppCompatActivity {
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
                         menus.setPrecio(object.getString("precio"));
-                        menus.setFoto(object.getString("foto"));
+                        //menus.setFoto(object.getString("foto"));
                         list_data.add(menus);
                     }
                     MenuAdapter adapter =  new MenuAdapter(Menu.this,list_data);

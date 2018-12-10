@@ -3,5 +3,5 @@ package collections;
 import java.util.ArrayList;
 
 public class StaticData {
-    public static ArrayList<Restaurants> LISTAPARCIAL;
+    public static ArrayList<Menus> LISTAPARCIAL;
 }

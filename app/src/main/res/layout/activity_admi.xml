@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admi">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fondo"
+        android:scaleType="centerCrop"/>
+
 
     <ImageView
         android:id="@+id/fotoperfil"
@@ -18,10 +24,19 @@
 
     <TextView
         android:id="@+id/nombre2"
-        android:textSize="20dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:textSize="20dp"
         android:text="Nombre"
+        android:inputType="text"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
         tools:ignore="MissingConstraints" />
@@ -34,6 +49,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="CI"
+        android:inputType="text"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombre2" />
 
@@ -45,6 +66,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Telefono"
+        android:inputType="text"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ci2" />
 
@@ -56,6 +83,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Correo"
+        android:inputType="text"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/telefono2" />
 
@@ -67,6 +100,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Tipo"
+        android:inputType="text"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#fff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correo2" />
 
@@ -77,6 +116,11 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
         android:text="Ver restaurant"
+        android:paddingLeft="22dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#170B3B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fotoperfil" />
 
@@ -87,6 +131,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="68dp"
         android:text="Crear restaurant"
+        android:paddingLeft="22dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#170B3B"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tipo" />
 
@@ -98,6 +147,11 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Editar cuenta"
+        android:paddingLeft="22dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#170B3B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/crestaurant" />
@@ -110,7 +164,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Eliminar cuenta"
+        android:paddingLeft="22dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#170B3B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/verestaurant" />
+
 </android.support.constraint.ConstraintLayout>

@@ -5,6 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/images"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#d0f00"
+        android:gravity="center"
+        android:orientation="vertical" />
 
     <EditText
         android:id="@+id/correo"
@@ -16,6 +29,8 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Correo"
+        android:textColor="#8A0829"
+        android:textColorHint="#240B3B"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,6 +49,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Contraseña"
+        android:textColorHint="#240B3B"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,17 +62,18 @@
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Iniciar Sesion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintVertical_bias="0.154"
+        android:textColor="#F4FA00"/>
 
     <ImageButton
         android:id="@+id/google"
@@ -75,12 +92,14 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/agua"
         android:text="Iniciar Sesion con Google"
         android:textSize="20dp"
+        android:textColor="#0B3B39"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/google"
         app:layout_constraintHorizontal_bias="0.425"

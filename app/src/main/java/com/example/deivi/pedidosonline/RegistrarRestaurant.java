@@ -31,9 +31,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import collections.item;
 import cz.msebera.android.httpclient.Header;
 
 public class RegistrarRestaurant extends AppCompatActivity implements OnMapReadyCallback {
+   //rivate static final item R = ;
     private MapView map;
     private GoogleMap mMap;
     private Geocoder geocoder;

@@ -44,14 +44,15 @@
         <activity android:name=".InfoRestaurant"/>
 
         <activity android:name=".RegistrarUsuario"/>
-        <activity android:name=".RegistrarRestaurant"/>
-        <activity android:name=".CrearMenu">
+        <activity android:name=".RegistrarRestaurant">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CrearMenu"/>
+
 
         <activity android:name=".Cliente" />
         <activity android:name=".Admi" />

@@ -52,7 +52,7 @@ public class EditarAdmi extends AppCompatActivity {
 
     private void loadData() {
         AsyncHttpClient client =new AsyncHttpClient();
-        client.get("http://192.168.1.12:7777/api/v1.0/cliente", null, new JsonHttpResponseHandler() {
+        client.get("http://192.168.1.10:7777/api/v1.0/cliente", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 

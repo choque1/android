@@ -33,7 +33,7 @@ public class Admi extends AppCompatActivity {
         crearres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Admi.this,RegistrarRestaurant.class));
+                startActivity(new Intent(Admi.this, RegistrarRestaurant.class));
                 finish();
             }
         });

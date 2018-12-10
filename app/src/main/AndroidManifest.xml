@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,8 +20,14 @@
         <activity
             android:name=".Login"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".FotoRestaurant" />
+            android:theme="@style/AppTheme.NoActionBar" >
+
+
+        </activity>
+
+        <activity android:name=".FotoRestaurant" >
+
+        </activity>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -32,10 +40,21 @@
         </provider>
 
         <activity android:name=".VerMenu" />
-        <activity android:name=".EditarMenu" />
+        <activity android:name=".EditarMenu">
+
+        </activity>
         <activity android:name=".Editar1" />
-        <activity android:name=".Lugar" />
-        <activity android:name=".Menu"/>
+        <activity android:name=".Lugar">
+        </activity>
+        <activity android:name=".Menu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
 
 
         <activity android:name=".Carrito" />
@@ -44,14 +63,24 @@
         <activity android:name=".InfoRestaurant"/>
 
         <activity android:name=".RegistrarUsuario"/>
+<<<<<<< HEAD
         <activity android:name=".RegistrarRestaurant">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+=======
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+        <activity android:name=".RegistrarRestaurant">
+
+
+        </activity>
+
+        <activity android:name=".CrearMenu">
+>>>>>>> dacb48045b7320072bdd76a5d68d8b4d1fdaee12
+
         </activity>
         <activity android:name=".CrearMenu"/>
+
 
 
         <activity android:name=".Cliente" />

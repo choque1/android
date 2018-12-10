@@ -23,8 +23,8 @@ import java.util.Date;
 
 public class Editar1 extends AppCompatActivity {
     ImageView image1;
-    EditText title2,descripcion1;
-    String titulo,descripcion,img;
+    EditText title2,descripcion1,precio1;
+    String titulo,descripcion,precio;
     Button aceptar;
 
     @Override
@@ -41,17 +41,20 @@ public class Editar1 extends AppCompatActivity {
         });
         image1 = findViewById (R.id.fotomenu1);
         title2 = findViewById (R.id.producto1);
-        descripcion1 = findViewById (R.id.precio1);
+        precio1 = findViewById(R.id.precio1);
+        descripcion1 = findViewById (R.id.descripcion1);
         informacion();
     }
     public void informacion(){
         Intent intent = getIntent();
-        titulo = intent.getStringExtra("Titulo");
-        descripcion = intent.getStringExtra("Descripcion");
-        img = intent.getStringExtra("image");
+        titulo = intent.getStringExtra("nombre");
+        descripcion = intent.getStringExtra("descripcion");
+        precio = intent.getStringExtra("precio");
         title2.setText(titulo);
         descripcion1.setText(descripcion);
-        image1.setImageURI(Uri.parse(img));
+        precio1.setText(precio);
+
+        //image1.setImageURI(Uri.parse(img));
     }
     String mCurrentPhotoPath;
     @SuppressLint("NewApi")

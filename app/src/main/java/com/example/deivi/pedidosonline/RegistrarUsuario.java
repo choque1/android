@@ -95,9 +95,14 @@ public class RegistrarUsuario extends AppCompatActivity {
         TextView telefono = findViewById(R.id.phone1);
         TextView email  = findViewById(R.id.correo1);
         TextView password  = findViewById(R.id.password1);
+        Spinner tipo = findViewById(R.id.tipo);
+        if(nombre.length()>5){
 
+            return;
+        }
         AsyncHttpClient client = new AsyncHttpClient();
-        client.addHeader("authorization", Data.TOKEN);
+
+        //client.addHeader("authorization", Data.TOKEN);
 
 
         RequestParams params = new RequestParams();
@@ -107,30 +112,54 @@ public class RegistrarUsuario extends AppCompatActivity {
         params.add("telefono",telefono.getText().toString());
         params.add("email",email.getText().toString());
         params.add("password",password.getText().toString());
+        params.add("tipo",tipo.getSelectedItem().toString());
 
-        client .post(Data.REGISTER_USER, params, new JsonHttpResponseHandler() {
+        client .post(Data.REGISTER_CLIENTE, params, new JsonHttpResponseHandler() {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONArray) was not overriden, but callback was received");
                 AlertDialog alertDialog = new AlertDialog.Builder(RegistrarUsuario.this).create();
                 try {
-                    String msn = response.getString("msn");
-                    alertDialog.setTitle("RESPONSE SERVER");
-                    alertDialog.setMessage(msn);
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    alertDialog.show();
+
+
+                    int resp = response.getInt("resp");
+                    if(resp==200){
+                        String msn = response.getString("msn");
+                        JSONObject json=response.getJSONObject("dato");
+                        final String email_resp=json.getString("email");
+                        final String password_resp=json.getString("password");
+                        alertDialog.setTitle("Mensaje");
+                        alertDialog.setMessage(msn);
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent =new Intent(RegistrarUsuario.this, Login.class);
+                                //intent.putExtra("em",email_resp);
+                                intent.putExtra("email",email_resp);
+                                intent.putExtra("password",password_resp);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                        alertDialog.show();
+                    }else{
+                        alertDialog.setTitle("Mensaje");
+                        alertDialog.setMessage("Error al tratar de crear nuevo usuario");
+                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        alertDialog.show();
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
 
 
         });
+
     }
 
 }

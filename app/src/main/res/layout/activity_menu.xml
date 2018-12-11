@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Menu">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fondo"
+        android:scaleType="centerCrop"
+        />
+
     <TextView
         android:id="@+id/menu"
         android:layout_width="wrap_content"

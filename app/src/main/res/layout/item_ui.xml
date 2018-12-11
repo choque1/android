@@ -6,57 +6,50 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/aaa"
-        android:scaleType="centerCrop"
-        />
-
-    <ImageView
         android:id="@+id/imagesource"
-        android:layout_width="107dp"
-        android:layout_height="46dp"
+        android:layout_width="137dp"
+        android:layout_height="49dp"
         android:background="@mipmap/ic_launcher" />
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/nompro"
+            android:id="@+id/nomproduc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="Titulo de Prueba"
+            android:text="Nombre producto"
             android:textColor="#ff0000"
-            android:textSize="15sp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nompro"
-            android:text="hola amigos" />
+            android:layout_below="@+id/nomproduc"
+            android:text="Descripcion" />
 
         <TextView
-            android:id="@+id/precio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/nompro"
-            android:layout_marginStart="22dp"
-            android:layout_toEndOf="@+id/nompro"
-            android:text="precio" />
-
-        <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/prec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="8dp"
-            android:layout_toEndOf="@+id/precio"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/nomproduc"
+            android:text="Precio"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="14dp"
+            android:layout_toEndOf="@+id/prec"
             android:text="Bs" />
 
     </RelativeLayout>

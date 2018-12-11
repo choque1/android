@@ -6,22 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".Lugar">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/mapa"
-        android:scaleType="centerCrop"
-        />
-
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="276dp"
-        android:layout_height="29dp"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="SELECCIONE RESTAURANT"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

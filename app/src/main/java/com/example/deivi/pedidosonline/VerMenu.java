@@ -4,28 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
-
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-
-import collections.MenuAdapter;
-import collections.Menus;
-import cz.msebera.android.httpclient.Header;
-
+import collections.item;
+import collections.listAdapter;
 
 public class VerMenu extends AppCompatActivity {
     ListView listamenu;
     ImageButton atras;
 
-    ArrayList<Menus> list_data = new ArrayList<Menus> ();
+    ArrayList<item> list_data = new ArrayList<item> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,45 +29,17 @@ public class VerMenu extends AppCompatActivity {
                 finish();
             }
         });
-        loadComponents();
-    }
-    private void loadComponents() {
-        AsyncHttpClient client = new AsyncHttpClient ();
-        client.get ("http://192.168.1.108:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+        for (int i = 0; i < 100; i++) {
+            item p = new item();
+            p.id = i;
+            p.nombrepro = "Titulo" + i;
+            p.description = "Descripcion" + i;
+            p.url = "image" + i;
+            list_data.add (p);
 
-            }
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray jsonArray) {
-
-                try {
-
-                    for (int i =0 ; i < jsonArray.length(); i++) {
-                        Menus menus = new Menus();
-                        JSONObject object = jsonArray.getJSONObject(i);
-                        menus.setId(i);
-                        menus.setNombre(object.getString("nombre"));
-                        menus.setDescripcion(object.getString("descripcion"));
-                        menus.setPrecio(object.getString("precio"));
-                        //menus.setFoto(object.getString("foto"));
-                        list_data.add(menus);
-                    }
-                    MenuAdapter adapter =  new MenuAdapter(VerMenu.this,list_data);
-                    listamenu = findViewById(R.id.listamenu);
-                    listamenu.setAdapter(adapter);
-
-
-                }catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-        });
-
-
-
-
+        }
+        listAdapter adapter = new listAdapter(this, list_data);
+        listamenu = this.findViewById (R.id.listamenu);
+        listamenu.setAdapter (adapter);
     }
 }

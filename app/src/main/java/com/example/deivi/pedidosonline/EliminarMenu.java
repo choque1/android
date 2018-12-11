@@ -8,33 +8,22 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
-import collections.MenuAdapter;
-import collections.Menus;
-import cz.msebera.android.httpclient.Header;
-
+import collections.item;
+import collections.listAdapter;
 
 public class EliminarMenu extends AppCompatActivity {
     ListView list3;
     ImageButton atras2;
-    MenuAdapter adapter;
 
-    ArrayList<Menus> list_data2 = new ArrayList<Menus>();
+    ArrayList<item> list_data2 = new ArrayList<item> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eliminar_menu);
         atras2 = findViewById(R.id.imageatras);
-        list3 = findViewById(R.id.elist);
         atras2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,56 +32,25 @@ public class EliminarMenu extends AppCompatActivity {
             }
         });
 
-       loadComponents();
+        for (int i = 0; i < 100; i++) {
+            item p = new item();
+            p.id = i;
+            p.nombrepro = "Titulo" + i;
+            p.description = "Descripcion" + i;
+            p.url = "image" + i;
+            list_data2.add (p);
+
+        }
+        final listAdapter adapter1 = new listAdapter(this, list_data2);
+        list3 = this.findViewById (R.id.elist);
+        list3.setAdapter (adapter1);
         list3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               
-
                 list_data2.remove(position);
-
-                adapter.notifyDataSetChanged();
+                adapter1.notifyDataSetChanged();
             }
         });
-
-
-    }
-    private void loadComponents() {
-        AsyncHttpClient client = new AsyncHttpClient ();
-        client.get ("http://192.168.1.108:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
-            }
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray jsonArray) {
-
-                try {
-
-                    for (int i =0 ; i < jsonArray.length(); i++) {
-                        Menus menus = new Menus();
-                        JSONObject object = jsonArray.getJSONObject(i);
-                        menus.setId(i);
-                        menus.setNombre(object.getString("nombre"));
-                        menus.setDescripcion(object.getString("descripcion"));
-                        menus.setPrecio(object.getString("precio"));
-                        //menus.setFoto(object.getString("foto"));
-                        list_data2.add(menus);
-                    }
-                    adapter =  new MenuAdapter(EliminarMenu.this,list_data2);
-                    list3.setAdapter(adapter);
-
-
-                }catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-        });
-
-
-
 
     }
 }

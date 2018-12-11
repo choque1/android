@@ -9,35 +9,23 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.example.deivi.pedidosonline.utils.Data;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.JsonHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 
-import collections.ResAdapter;
-import collections.Restaurants;
-import cz.msebera.android.httpclient.Header;
+import collections.item2;
+import collections.restaurantAdapter;
 
 public class Lugar extends AppCompatActivity {
-    ListView list1;
+    ListView list;
     ImageButton atras3;
 
-    ArrayList<Restaurants> list_data1 = new ArrayList<Restaurants> ();
-
-
+    ArrayList<item2> list_data1 = new ArrayList<item2> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lugar);
         atras3 = findViewById(R.id.atrs2);
-        list1= this.findViewById (R.id.restaurants);
         atras3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,12 +33,22 @@ public class Lugar extends AppCompatActivity {
                 finish();
             }
         });
-               loadComponents();
-        list1.setOnItemClickListener (new AdapterView.OnItemClickListener () {
+        for (int i = 0; i < 100; i++) {
+            item2 p1 = new item2();
+            p1.id = i;
+            p1.nombre = "restaurant" + i;
+            p1.url2 = "image" + i;
+            list_data1.add (p1);
+
+        }
+        restaurantAdapter adapter = new restaurantAdapter(this, list_data1);
+        list = this.findViewById (R.id.restaurants);
+        list.setAdapter (adapter);
+        list.setOnItemClickListener (new AdapterView.OnItemClickListener () {
             @SuppressLint("ResourceType")
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                final Restaurants item = list_data1.get (position);
+                final item2 item = list_data1.get (position);
 
 
                 Intent i = new Intent(Lugar.this, Menu.class);
@@ -63,40 +61,4 @@ public class Lugar extends AppCompatActivity {
         });
 
     }
-    private void loadComponents() {
-        AsyncHttpClient client = new AsyncHttpClient ();
-        client.get ("http://192.168.1.108:7777/api/v1.0/restaurant",  new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
-            }
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray jsonArray) {
-
-              try {
-
-                  for (int i =0 ; i < jsonArray.length(); i++) {
-                      Restaurants restaurants = new Restaurants();
-                      JSONObject object = jsonArray.getJSONObject(i);
-                      restaurants.setId(i);
-                      restaurants.setNombre(object.getString("nombre"));
-                      list_data1.add(restaurants);
-                  }
-                  ResAdapter adapter =  new ResAdapter(Lugar.this,list_data1);
-                  list1.setAdapter(adapter);
-
-
-              }catch (JSONException e) {
-                  e.printStackTrace();
-              }
-
-            }
-
-        });
-
-
-
-
-    }
-
 }

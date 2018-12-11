@@ -10,15 +10,16 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import collections.MenuAdapter;
+import collections.Menus;
 import collections.StaticData;
-import collections.item;
-import collections.listAdapter;
+
 
 public class Carrito extends AppCompatActivity {
     Button pedir;
     ListView list1;
     Bundle bundle ;
-    listAdapter adapter;
+    MenuAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +42,13 @@ public class Carrito extends AppCompatActivity {
             StaticData.LISTAPARCIAL = new ArrayList<>();
         }
         bundle = getIntent().getExtras();
-        item item2 = new item();
-        item2.setNombrepro ("papa");
-        item2.setDescription ("Descripcion");
+        Menus item2 = new Menus();
+        item2.setNombre (bundle.getString("nombre"));
+        item2.setDescripcion (bundle.getString("descripcion"));
+        item2.setPrecio(bundle.getString("precio"));
         StaticData.LISTAPARCIAL.add (item2);
         list1 = findViewById (R.id.pedidos);
-        adapter = new listAdapter(this, StaticData.LISTAPARCIAL);
+        adapter = new MenuAdapter(this, StaticData.LISTAPARCIAL);
         list1.setAdapter (adapter);
 
         list1.setOnItemClickListener(new AdapterView.OnItemClickListener() {

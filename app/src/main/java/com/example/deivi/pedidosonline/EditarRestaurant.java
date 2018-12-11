@@ -5,11 +5,10 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import collections.item;
-import collections.listAdapter;
+
 
 public class EditarRestaurant extends AppCompatActivity {
-    ArrayList<item> list_data = new ArrayList<item> ();
+   // ArrayList<item> list_data = new ArrayList<item> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class InfoRestaurant extends AppCompatActivity {
     Button crear,ver,edit,delete;
@@ -18,7 +17,7 @@ public class InfoRestaurant extends AppCompatActivity {
         ver = findViewById(R.id.vermenu);
         edit = findViewById(R.id.editarmenu);
         delete = findViewById(R.id.elimenu);
-        final TextView nombre=(TextView) findViewById(R.id.nombre);
+        /*final TextView nombre=(TextView) findViewById(R.id.nombre);
         nombre.setText( getIntent().getExtras().getString("nombre"));
         final TextView calle=(TextView) findViewById(R.id.calle);
         calle.setText( getIntent().getExtras().getString("calle"));
@@ -28,7 +27,7 @@ public class InfoRestaurant extends AppCompatActivity {
         propietario.setText( getIntent().getExtras().getString("propietario"));
 
         String _id_de_mi_restaurant=getIntent().getExtras().getString("_id");
-
+*/
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

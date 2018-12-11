@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EliminarMenu">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fondo"
+        android:scaleType="centerCrop"
+        />
 
     <TextView
         android:id="@+id/textView"
@@ -26,7 +32,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="8dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        />
 
     <ImageButton
         android:id="@+id/imageatras"

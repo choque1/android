@@ -133,6 +133,7 @@ public class RegistrarUsuario extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent =new Intent(RegistrarUsuario.this, Login.class);
+                                //intent.putExtra("em",email_resp);
                                 intent.putExtra("email",email_resp);
                                 intent.putExtra("password",password_resp);
                                 startActivity(intent);
@@ -158,6 +159,7 @@ public class RegistrarUsuario extends AppCompatActivity {
 
 
         });
+
     }
 
 }

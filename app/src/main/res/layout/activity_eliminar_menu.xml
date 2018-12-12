@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".EliminarMenu">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/image"
+        android:scaleType="centerCrop"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d80b0000"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="289dp"
@@ -14,6 +30,8 @@
         android:layout_marginTop="8dp"
         android:text="SELECCIONE LA OPOCION ELIMINAR"
         android:textAlignment="center"
+        android:textColor="#fff"
+        android:textStyle="bold"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,4 +60,5 @@
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
+
 </android.support.constraint.ConstraintLayout>

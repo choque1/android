@@ -17,7 +17,9 @@
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_menu_gallery" />
+        app:srcCompat="@drawable/cam"
+        android:background="@drawable/fondocolor"
+        android:paddingLeft="5dp"/>
 
     <Button
         android:id="@+id/registrar"
@@ -29,6 +31,13 @@
         android:layout_marginBottom="8dp"
         android:onClick="tomarFoto"
         android:text="Registrar"
+        android:background="@drawable/input"
+        android:paddingLeft="14dp"
+        android:paddingTop="1dp"
+        android:paddingRight="20dp"
+        android:textColor="#0E1637"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

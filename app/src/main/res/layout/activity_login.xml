@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/azul"
+        android:scaleType="centerCrop"
+        />
+
+
     <EditText
         android:id="@+id/correo"
         android:layout_width="match_parent"
@@ -16,6 +24,11 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Correo"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:textColorHint="#900C3F"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +47,12 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Contraseña"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:textColorHint="#900C3F"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.424"
@@ -51,6 +69,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Iniciar Sesion"
+        android:background="@drawable/input"
+        android:textColor="#000"
+        android:paddingLeft="10dp"
+        android:paddingTop="9dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="4dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -74,13 +100,19 @@
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
-        android:layout_height="36dp"
+        android:layout_height="34dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="9dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="4dp"
         android:text="Iniciar Sesion con Google"
+        android:textColor="#000"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/google"
         app:layout_constraintHorizontal_bias="0.425"
@@ -101,9 +133,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="8dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="9dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
             android:text="Aun no tienes tu cuenta"
-
-            android:textSize="20sp" />
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/registrarse"
@@ -111,9 +152,15 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
 
+            android:background="@drawable/input"
+            android:paddingLeft="10dp"
+            android:paddingTop="9dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="4dp"
             android:text="CREAR CUENTA"
-
-            android:textSize="16sp" />
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

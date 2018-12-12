@@ -7,6 +7,23 @@
     tools:context=".EditarCliente">
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/chata"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d8000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
         android:id="@+id/fotoperfil"
         android:layout_width="127dp"
         android:layout_height="132dp"
@@ -25,6 +42,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Guardar"
+        android:textColor="#fff"
+        android:background="#1A55E8"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +59,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Nombre"
+        android:textColorHint="#ccc"
+        android:textSize="20dp"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,6 +73,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="CI"
+        android:textColorHint="#ccc"
+        android:textSize="20dp"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombre3" />
@@ -63,6 +87,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Telefono"
+        android:textColorHint="#ccc"
+        android:textSize="20dp"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ci3" />
@@ -75,6 +101,8 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Correo"
+        android:textColorHint="#ccc"
+        android:textSize="20dp"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone3" />
@@ -87,7 +115,10 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Tipo"
+        android:textColorHint="#ccc"
+        android:textSize="20dp"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/correo3" />
+
 </android.support.constraint.ConstraintLayout>

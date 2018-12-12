@@ -6,6 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/manzana"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="238dp"
         android:layout_height="174dp"
@@ -22,10 +31,18 @@
             android:id="@+id/cantidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:ems="10"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:ems="50"
             android:hint="Cantidad"
+            android:background="@drawable/input"
+            android:paddingLeft="75dp"
+            android:paddingTop="30dp"
+            android:paddingRight="60dp"
+            android:textColorHint="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

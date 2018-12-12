@@ -5,6 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VerMenu">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/claro"
+        android:scaleType="centerCrop"
+        />
+
 
     <TextView
         android:id="@+id/textView5"
@@ -19,6 +26,7 @@
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

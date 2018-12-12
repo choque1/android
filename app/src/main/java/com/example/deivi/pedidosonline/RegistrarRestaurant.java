@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,108 +34,79 @@ import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
 
+
 public class RegistrarRestaurant extends AppCompatActivity implements OnMapReadyCallback {
     private MapView map;
     private GoogleMap mMap;
     private Geocoder geocoder;
     private TextView street;
-    private Button crear;
+    private Button next;
     private LatLng mainposition;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_restaurant);
+
         map = findViewById(R.id.MapView);
         map.onCreate(savedInstanceState);
+        map.onResume();
         MapsInitializer.initialize(this);
         map.getMapAsync(this);
         geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
         street = findViewById(R.id.street);
-        crear = findViewById(R.id.crear);
-
-        crear.setOnClickListener(new View.OnClickListener() {
+        next = findViewById(R.id.crear);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                sedData();
+                sendData();
             }
-
         });
     }
-    public void sedData(){
-        TextView nombre  = findViewById(R.id.name1);
-        TextView nit  = findViewById(R.id.nit);
-        TextView propietario = findViewById(R.id.propietario);
-        TextView calle  = findViewById(R.id.street);
-        TextView telefono  = findViewById(R.id.phone1);
+    public void sendData () {
+        TextView name = findViewById(R.id.name1);
+        TextView nit = findViewById(R.id.nit);
+        TextView street = findViewById(R.id.street);
+        TextView property = findViewById(R.id.propietario);
+        TextView phone = findViewById(R.id.phone1);
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.addHeader("authorization", Data.TOKEN);
 
-
         RequestParams params = new RequestParams();
-
-        params.add("nombre", nombre.getText().toString());
+        params.add("nombre", name.getText().toString());
         params.add("nit", nit.getText().toString());
-        params.add("propietario",propietario.getText().toString());
-        params.add("calle",calle.getText().toString());
-        params.add("telefono",telefono.getText().toString());
-        params.add("lat", String.valueOf( mainposition.latitude));
-        params.add("lon", String.valueOf( mainposition.longitude));
+        params.add("calle", street.getText().toString());
+        params.add("propietario", property.getText().toString());
+        params.add("telefono", phone.getText().toString());
+        params.add("lat", String.valueOf(""));
+        params.add("lon", String.valueOf(""));
 
-        client .post(Data.REGISTER_RESTORANT, params, new JsonHttpResponseHandler() {
+        client.post(Data.REGISTER_RESTORANT, params, new JsonHttpResponseHandler(){
+            @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONArray) was not overriden, but callback was received");
-
-
-
-                AlertDialog alertDialog = new AlertDialog.Builder(RegistrarRestaurant.this).create();
+               AlertDialog alertDialog = new AlertDialog.Builder(RegistrarRestaurant.this).create();
                 try {
-                    int resp = response.getInt("resp");
-
-                    if(resp==200){
                     String msn = response.getString("msn");
-                    JSONObject json=response.getJSONObject("dato");
-                    final String name_resp=json.getString("nombre");
-                    final String calle_resp=json.getString("calle");
-                    final String tel_resp=json.getString("telefono");
-                    final String propietario_resp=json.getString("propietario");
-                    final String _id_reps=json.getString("_id");
-                    alertDialog.setTitle("Mensaje");
+                    alertDialog.setTitle("RESPONSE SERVER");
                     alertDialog.setMessage(msn);
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent =new Intent(RegistrarRestaurant.this, InfoRestaurant.class);
-                            intent.putExtra("nombre",name_resp);
-                            intent.putExtra("calle",calle_resp);
-                            intent.putExtra("telefono",tel_resp);
-                            intent.putExtra("propietario",propietario_resp);
-                            intent.putExtra("_id",_id_reps);
-                            startActivity(intent);
-                            finish();
-                        }
-                    });
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
                     alertDialog.show();
-                    }else{
-                        alertDialog.setTitle("Mensaje");
-                        alertDialog.setMessage("Error al tratar de crear nuevo restaurant");
-                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
-                        alertDialog.show();
-                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+               // Intent camera = new Intent(RegistrarRestaurant.this, FotoRestaurant.class);
+                //RegistrarRestaurant.this.startActivity(camera);
 
+                //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
             }
-
-
         });
     }
     @Override
@@ -142,14 +114,14 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
+        //-19.5783329,-65.7563853
         LatLng potosi = new LatLng(-19.5783329, -65.7563853);
         mainposition = potosi;
-        mMap.addMarker(new MarkerOptions().position(potosi).title("Ubicame").zIndex(15).draggable(true));
-        mMap.setMinZoomPreference(15);
+        mMap.addMarker(new MarkerOptions().position(potosi).title("Lugar").zIndex(17).draggable(true));
+        mMap.setMinZoomPreference(16);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(potosi));
-        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener(){
 
-
+        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
             @Override
             public void onMarkerDragStart(Marker marker) {
 
@@ -163,18 +135,18 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
             @Override
             public void onMarkerDragEnd(Marker marker) {
                 mainposition = marker.getPosition();
-                String street_string =  getStreet(marker.getPosition().latitude,marker.getPosition().longitude);
+                String street_string = getStreet(marker.getPosition().latitude, marker.getPosition().longitude);
                 street.setText(street_string);
             }
         });
-
     }
-    public String getStreet (Double lat, Double lon){
+    public String getStreet (Double lat, Double lon) {
         List<Address> address;
         String result = "";
         try {
             address = geocoder.getFromLocation(lat, lon, 1);
             result += address.get(0).getThoroughfare();
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -182,4 +154,7 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
 
         return result;
     }
+
+
+
 }

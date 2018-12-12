@@ -50,7 +50,7 @@ public class CrearMenu extends AppCompatActivity {
         setContentView (R.layout.activity_crear_menu);
         foto = findViewById (R.id.tomarfoto);
         producto = findViewById(R.id.producto);
-        precio = findViewById(R.id.precio);
+        precio = findViewById(R.id.precioproducto);
         descripcion = findViewById(R.id.descripcion);
         aceptar = findViewById (R.id.aceptar);
         imagen = findViewById (R.id.fotomenu);
@@ -158,7 +158,7 @@ public class CrearMenu extends AppCompatActivity {
 
     public void sedData(){
         TextView nombre  = findViewById(R.id.producto);
-        TextView precio  = findViewById(R.id.precio);
+        TextView precio  = findViewById(R.id.precioproducto);
         TextView descripcion = findViewById(R.id.descripcion);
 
 

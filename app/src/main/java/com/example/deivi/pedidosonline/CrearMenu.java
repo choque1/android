@@ -56,7 +56,7 @@ public class CrearMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_crear_menu);
-        listcrear=findViewById(R.id.liscrear);
+        //istcrear=findViewById(R.id.);
         foto = findViewById (R.id.tomarfoto);
         producto = findViewById(R.id.producto);
         precio = findViewById(R.id.precioproducto);

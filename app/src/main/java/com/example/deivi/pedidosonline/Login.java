@@ -80,7 +80,10 @@ public class Login extends AppCompatActivity {
                         String ci=json.getString("ci");
                         String telefono=json.getString("telefono");
                         String correo=json.getString("email");
+                        String id=json.getString("_id");
                         Data.TOKEN="Data "+token;
+                        Data.ID_User=id;
+                        Data.Tipo=tipo;
                         if(tipo.compareTo("Administrador")==0) {
                             Intent intent =new Intent(Login.this, Admi.class);
                             intent.putExtra("email",correo);

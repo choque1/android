@@ -29,13 +29,13 @@ import collections.Menus;
 import cz.msebera.android.httpclient.Header;
 
 public class Menu extends AppCompatActivity {
-   ListView lista;
-   EditText c;
-   TextView p;
-   String precios ,cant, total1;
-   Double pre,total,can;
+    ListView lista;
+    EditText c;
+    TextView p;
+    String precios ,cant, total1;
+    Double pre,total,can;
 
-   ArrayList<Menus> list_data = new ArrayList<Menus> ();
+    ArrayList<Menus> list_data = new ArrayList<Menus> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,19 +55,6 @@ public class Menu extends AppCompatActivity {
                 builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        c = findViewById(R.id.cantidad);
-                        cant = c.getText().toString();
-                        p = findViewById(R.id.precio);
-                        precios = p.getText().toString();
-                        pre = Double.parseDouble(precios);
-                        can = Double.parseDouble(cant);
-                        total = pre * can;
-                        total1 = String.valueOf(total);
-                        p.setText(total1);
-                        menus.setPrecio(total1);
-                        list_data.add(menus);
-                        MenuAdapter adapter =  new MenuAdapter(Menu.this,list_data);
-                        lista.setAdapter(adapter);
 
 
 
@@ -99,23 +86,19 @@ public class Menu extends AppCompatActivity {
     }
     private void loadComponents() {
         AsyncHttpClient client = new AsyncHttpClient ();
-        client.get ("http://192.168.1.108:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
+        client.get ("http://192.168.1.110:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
-            }
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray jsonArray) {
-
                 try {
-
-                    for (int i =0 ; i < jsonArray.length(); i++) {
+                    JSONArray data = response.getJSONArray("result");
+                    for (int i =0 ; i < data.length(); i++) {
                         Menus menus = new Menus();
-                        JSONObject object = jsonArray.getJSONObject(i);
-                        menus.setId(i);
+                        JSONObject object = data.getJSONObject(i);
+                        menus.setId(object.getString("_id"));
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
-                        menus.setPrecio(object.getString("precio"));
+                        menus.setPrecio(object.getDouble("precio"));
                         //menus.setFoto(object.getString("foto"));
                         list_data.add(menus);
                     }
@@ -128,6 +111,7 @@ public class Menu extends AppCompatActivity {
                 }
 
             }
+
 
         });
 

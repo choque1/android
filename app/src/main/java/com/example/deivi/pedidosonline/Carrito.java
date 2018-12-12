@@ -45,7 +45,7 @@ public class Carrito extends AppCompatActivity {
         Menus item2 = new Menus();
         item2.setNombre (bundle.getString("nombre"));
         item2.setDescripcion (bundle.getString("descripcion"));
-        item2.setPrecio(bundle.getString("precio"));
+        item2.setPrecio(bundle.getDouble("precio"));
         StaticData.LISTAPARCIAL.add (item2);
         list1 = findViewById (R.id.pedidos);
         adapter = new MenuAdapter(this, StaticData.LISTAPARCIAL);

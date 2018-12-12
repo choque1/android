@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import com.example.deivi.pedidosonline.utils.Data;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -20,7 +19,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-import collections.ResAdapter;
 import collections.Restaurants;
 import cz.msebera.android.httpclient.Header;
 
@@ -45,7 +43,7 @@ public class Lugar extends AppCompatActivity {
                 finish();
             }
         });
-               loadComponents();
+               //loadComponents();
         list1.setOnItemClickListener (new AdapterView.OnItemClickListener () {
             @SuppressLint("ResourceType")
             @Override
@@ -63,7 +61,7 @@ public class Lugar extends AppCompatActivity {
         });
 
     }
-    private void loadComponents() {
+  /*  private void loadComponents() {
         AsyncHttpClient client = new AsyncHttpClient ();
         client.get ("http://192.168.1.108:7777/api/v1.0/restaurant",  new JsonHttpResponseHandler(){
             @Override
@@ -97,6 +95,6 @@ public class Lugar extends AppCompatActivity {
 
 
 
-    }
+    }*/
 
 }

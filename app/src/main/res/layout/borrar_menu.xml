@@ -68,7 +68,7 @@
         android:textStyle="italic" />
 
     <Button
-        android:id="@+id/pedirproducto"
+        android:id="@+id/borrarproducto"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_below="@+id/precioproducto"
@@ -80,6 +80,6 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="33dp"
         android:layout_marginRight="8dp"
-        android:text="pedir" />
+        android:text="borrar" />
 
 </RelativeLayout>

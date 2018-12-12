@@ -44,10 +44,10 @@ public class ResAdapter extends BaseAdapter {
             LayoutInflater inflate = (LayoutInflater) this.context.getSystemService (Context.LAYOUT_INFLATER_SERVICE);
             view = inflate.inflate (R.layout.item_ui2, null);
         }
-        TextView nombre = (TextView)view.findViewById (R.id.restaurant);
+        //TextView nombre = (TextView)view.findViewById (R.id.restaurant);
         ImageView image = (ImageView) view.findViewById (R.id.imgrestaurant);
         Glide.with (this.context).load (this.restaurants.get(position).getId()).into (image);
-        nombre.setText (this.restaurants.get (position).getNombre ());
+        //nombre.setText (this.restaurants.get (position).getNombre ());
         return view;
     }
 }

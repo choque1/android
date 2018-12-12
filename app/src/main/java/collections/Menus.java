@@ -3,10 +3,10 @@ package collections;
 public class Menus {
    public String Idrestaurant;
    public String nombre;
-   public String precio;
+   public Double precio;
    public String descripcion;
    public String foto;
-   public int id;
+   public String id;
 
     public String getIdrestaurant() {
         return this.Idrestaurant;
@@ -24,11 +24,11 @@ public class Menus {
         this.nombre = nombre;
     }
 
-    public String getPrecio() {
+    public Double getPrecio() {
         return this.precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
     public String getDescripcion() {
@@ -47,11 +47,11 @@ public class Menus {
         this.foto = foto;
     }
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

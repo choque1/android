@@ -22,6 +22,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Login"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".FotoRestaurant" />
 
         <provider
@@ -50,18 +54,23 @@
         <activity android:name=".Pedidos" />
         <activity android:name=".InfoPedidos" />
         <activity android:name=".InfoRestaurant" />
+        <activity android:name=".RegistrarUsuario" />
         <activity android:name=".RegistrarRestaurant">
 
         </activity>
         <activity android:name=".CrearMenu" />
+        <activity android:name=".Cliente" />
+        <activity android:name=".Admi" />
         <activity android:name=".EliminarMenu" />
+        <activity android:name=".EditarCliente" />
+        <activity android:name=".EditarAdmi" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -71,5 +80,4 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
     </application>
-
 </manifest>

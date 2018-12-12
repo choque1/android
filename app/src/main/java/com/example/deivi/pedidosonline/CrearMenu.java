@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,13 +29,19 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import collections.BorrarMenuAdapter;
+import collections.Menus;
+import collections.VerMenuAdapter;
 import cz.msebera.android.httpclient.Header;
 
 public class CrearMenu extends AppCompatActivity {
@@ -43,11 +50,13 @@ public class CrearMenu extends AppCompatActivity {
     EditText producto,precio,descripcion;
     ImageView imagen;
     String path;
-
+    ListView listcrear;
+    ArrayList<Menus> list_data = new ArrayList<Menus> ();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_crear_menu);
+        listcrear=findViewById(R.id.liscrear);
         foto = findViewById (R.id.tomarfoto);
         producto = findViewById(R.id.producto);
         precio = findViewById(R.id.precioproducto);
@@ -62,15 +71,16 @@ public class CrearMenu extends AppCompatActivity {
             }
         });
 
-        if (ContextCompat.checkSelfPermission(CrearMenu.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
+        /*if (ContextCompat.checkSelfPermission(CrearMenu.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(CrearMenu.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(CrearMenu.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 1000);
-        }
+        }*/
+        loadComponents();
 
 
     }
 
-    String mCurrentPhotoPath;
+   /* String mCurrentPhotoPath;
     @SuppressLint("NewApi")
     public File createImageFile() throws IOException {
         // Create an image file name
@@ -131,7 +141,7 @@ public class CrearMenu extends AppCompatActivity {
         Uri contentUri = Uri.fromFile(f);
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
-    }
+    }*/
     public void Registrar(View view) {
         String nombre = producto.getText().toString();
         String pre = precio.getText().toString();
@@ -157,13 +167,17 @@ public class CrearMenu extends AppCompatActivity {
     }
 
     public void sedData(){
-        TextView nombre  = findViewById(R.id.producto);
-        TextView precio  = findViewById(R.id.precioproducto);
-        TextView descripcion = findViewById(R.id.descripcion);
+       final EditText nombre  = findViewById(R.id.producto);
+       final EditText precio  = findViewById(R.id.precioproducto);
+       final EditText descripcion = findViewById(R.id.descripcion);
+        if (nombre.getText().toString().equals("") || precio.getText().toString().equals("") || descripcion.getText().toString().equals("")){
+            Toast.makeText(this, "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.addHeader("authorization", Data.TOKEN);
+        //client.addHeader("authorization", Data.TOKEN);
 
 
         RequestParams params = new RequestParams();
@@ -180,39 +194,17 @@ public class CrearMenu extends AppCompatActivity {
 
                 AlertDialog alertDialog = new AlertDialog.Builder(CrearMenu.this).create();
                 try {
+                    String id = response.getString("id");
                     int resp = response.getInt("resp");
+                    Data.ID_Menus = id;
 
                     if(resp==200){
                         String msn = response.getString("msn");
-                        JSONObject json=response.getJSONObject("dato");
-                        final String producto_resp=json.getString("nombre");
-                        final String precio_resp=json.getString("precio");
-                        final String descripcion_resp=json.getString("descripcion");
+                        nombre.getText().clear();
+                        precio.getText().clear();
+                        descripcion.getText().clear();
+                        loadComponents();
 
-                        alertDialog.setTitle("Mensaje");
-                        alertDialog.setMessage(msn);
-                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Intent intent =new Intent(CrearMenu.this, InfoRestaurant.class);
-                                intent.putExtra("nombre",producto_resp);
-                                intent.putExtra("precio",precio_resp);
-                                intent.putExtra("descripcion",descripcion_resp);
-                                startActivity(intent);
-                                finish();
-                            }
-                        });
-                        alertDialog.show();
-                    }else{
-                        alertDialog.setTitle("Mensaje");
-                        alertDialog.setMessage("Error al tratar de crear nuevo menus");
-                        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
-                        alertDialog.show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -222,6 +214,41 @@ public class CrearMenu extends AppCompatActivity {
 
 
         });
+    }
+    private void loadComponents() {
+        AsyncHttpClient client = new AsyncHttpClient ();
+        client.get ("http://192.168.1.102:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                try {
+                    JSONArray data = response.getJSONArray("result");
+                    for (int i =0 ; i < data.length(); i++) {
+                        Menus menus = new Menus();
+                        JSONObject object = data.getJSONObject(i);
+                        menus.setId(object.getString("_id"));
+                        menus.setNombre(object.getString("nombre"));
+                        menus.setDescripcion(object.getString("descripcion"));
+                        menus.setPrecio(object.getDouble("precio"));
+                        //menus.setFoto(object.getString("foto"));
+                        list_data.add(menus);
+                    }
+                    BorrarMenuAdapter adapter =  new BorrarMenuAdapter(CrearMenu.this,list_data);
+                    listcrear.setAdapter(adapter);
+
+
+                }catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+        });
+
+
+
+
     }
 
 }

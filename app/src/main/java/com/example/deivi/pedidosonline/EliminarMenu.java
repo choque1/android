@@ -72,7 +72,7 @@ public class EliminarMenu extends AppCompatActivity {
                     for (int i =0 ; i < jsonArray.length(); i++) {
                         Menus menus = new Menus();
                         JSONObject object = jsonArray.getJSONObject(i);
-                        menus.setId(i);
+                        menus.setId(object.getString("_id"));
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
                         menus.setPrecio(object.getDouble("precio"));

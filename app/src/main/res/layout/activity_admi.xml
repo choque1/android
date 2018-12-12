@@ -74,18 +74,18 @@
         android:id="@+id/verestaurant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:text="Ver restaurant"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fotoperfil" />
+        app:layout_constraintTop_toBottomOf="@+id/tipo" />
 
     <Button
         android:id="@+id/crestaurant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="36dp"
         android:text="Crear restaurant"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tipo" />
@@ -101,20 +101,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/crestaurant"
-        app:layout_constraintVertical_bias="0.403" />
+        app:layout_constraintVertical_bias="0.138" />
 
     <Button
         android:id="@+id/elicuenta1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="Eliminar cuenta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/verestaurant"
-        app:layout_constraintVertical_bias="0.415" />
+        app:layout_constraintVertical_bias="0.132" />
 
     <Button
         android:id="@+id/irpedidos"
@@ -127,6 +127,8 @@
         android:text="Controlar pedidos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edicuenta1" />
+        app:layout_constraintTop_toBottomOf="@+id/edicuenta1"
+        app:layout_constraintVertical_bias="0.444" />
 </android.support.constraint.ConstraintLayout>

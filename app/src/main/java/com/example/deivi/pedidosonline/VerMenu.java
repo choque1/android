@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 import collections.MenuAdapter;
 import collections.Menus;
+import collections.VerMenuAdapter;
 import cz.msebera.android.httpclient.Header;
 
 
@@ -56,14 +57,14 @@ public class VerMenu extends AppCompatActivity {
                     for (int i =0 ; i < jsonArray.length(); i++) {
                         Menus menus = new Menus();
                         JSONObject object = jsonArray.getJSONObject(i);
-                        menus.setId(i);
+                        menus.setId(object.getString("_id"));
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
                         menus.setPrecio(object.getDouble("precio"));
                         //menus.setFoto(object.getString("foto"));
                         list_data.add(menus);
                     }
-                    MenuAdapter adapter =  new MenuAdapter(VerMenu.this,list_data);
+                    VerMenuAdapter adapter =  new VerMenuAdapter(VerMenu.this,list_data);
                     listamenu = findViewById(R.id.listamenu);
                     listamenu.setAdapter(adapter);
 

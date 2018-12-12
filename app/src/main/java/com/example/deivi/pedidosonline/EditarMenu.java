@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import collections.MenuAdapter;
 import collections.Menus;
+import collections.VerMenuAdapter;
 import cz.msebera.android.httpclient.Header;
 
 
@@ -50,12 +51,13 @@ public class EditarMenu extends AppCompatActivity {
                 final Menus menus = list_data.get(position);
 
 
-                                Intent i = new Intent(EditarMenu.this, Editar1.class);
-                                i.putExtra ("nombre", menus.nombre);
-                                i.putExtra ("descripcion", menus.descripcion);
-                                i.putExtra ("precio",menus.precio);
-                                finish();
-                                startActivity(i);
+                Intent i = new Intent(EditarMenu.this, Editar1.class);
+                i.putExtra ("nombre", menus.nombre);
+                i.putExtra ("descripcion", menus.descripcion);
+                i.putExtra ("precio",menus.precio);
+                //i.putExtra("_id", menus.id);
+                finish();
+                startActivity(i);
 
 
             }
@@ -65,27 +67,23 @@ public class EditarMenu extends AppCompatActivity {
     }
     private void loadComponents() {
         AsyncHttpClient client = new AsyncHttpClient ();
-        client.get ("http://192.168.1.108:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
+        client.get ("http://192.168.1.110:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
-            }
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray jsonArray) {
-
                 try {
-
-                    for (int i =0 ; i < jsonArray.length(); i++) {
+                    JSONArray data = response.getJSONArray("result");
+                    for (int i =0 ; i < data.length(); i++) {
                         Menus menus = new Menus();
-                        JSONObject object = jsonArray.getJSONObject(i);
-                        menus.setId(i);
+                        JSONObject object = data.getJSONObject(i);
+                        menus.setId(object.getString("_id"));
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
                         menus.setPrecio(object.getDouble("precio"));
                         //menus.setFoto(object.getString("foto"));
                         list_data.add(menus);
                     }
-                    MenuAdapter adapter =  new MenuAdapter(EditarMenu.this,list_data);
+                    VerMenuAdapter adapter =  new VerMenuAdapter(EditarMenu.this,list_data);
                     list.setAdapter(adapter);
 
 
@@ -95,10 +93,12 @@ public class EditarMenu extends AppCompatActivity {
 
             }
 
+
         });
 
 
 
 
     }
+
 }

@@ -6,7 +6,7 @@ public class Menus {
    public Double precio;
    public String descripcion;
    public String foto;
-   public int id;
+   public String id;
 
     public String getIdrestaurant() {
         return this.Idrestaurant;
@@ -47,11 +47,11 @@ public class Menus {
         this.foto = foto;
     }
 
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

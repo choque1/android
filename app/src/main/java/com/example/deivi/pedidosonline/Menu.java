@@ -95,7 +95,7 @@ public class Menu extends AppCompatActivity {
                     for (int i =0 ; i < data.length(); i++) {
                         Menus menus = new Menus();
                         JSONObject object = data.getJSONObject(i);
-                        menus.setId(i);
+                        menus.setId(object.getString("_id"));
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
                         menus.setPrecio(object.getDouble("precio"));

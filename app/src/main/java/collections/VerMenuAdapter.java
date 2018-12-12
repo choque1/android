@@ -15,11 +15,11 @@ import com.example.deivi.pedidosonline.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuAdapter extends BaseAdapter {
+public class VerMenuAdapter extends BaseAdapter {
     Context context;
     List<Menus> menus;
 
-    public MenuAdapter(Context context, ArrayList<Menus> menus) {
+    public VerMenuAdapter(Context context, ArrayList<Menus> menus) {
         this.context = context;
         this.menus = menus;
     }
@@ -43,13 +43,12 @@ public class MenuAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup parent) {
         if (view == null){
             LayoutInflater inflate = (LayoutInflater) this.context.getSystemService (Context.LAYOUT_INFLATER_SERVICE);
-            view = inflate.inflate (R.layout.item_ui, null);
+            view = inflate.inflate (R.layout.vermenu, null);
         }
-        TextView nombre = view.findViewById (R.id.nombreproducto);
-        TextView descripcion = view.findViewById (R.id.descripcionproducto);
-        TextView precio = view.findViewById(R.id.precioproducto);
-        ImageView image =  view.findViewById (R.id.imgproducto);
-        Button pedir = view.findViewById(R.id.pedirproducto);
+        TextView nombre = view.findViewById (R.id.vernombreproducto);
+        TextView descripcion = view.findViewById (R.id.verdescripcionproducto);
+        TextView precio = view.findViewById(R.id.verprecioproducto);
+        ImageView image =  view.findViewById (R.id.verimgproducto);
         Glide.with (this.context).load (this.menus.get(i).getId()).into (image);
         nombre.setText (this.menus.get (i).getNombre ());
         descripcion.setText (this.menus.get (i).getDescripcion());
@@ -58,6 +57,5 @@ public class MenuAdapter extends BaseAdapter {
 
         return view;
     }
-
 
 }

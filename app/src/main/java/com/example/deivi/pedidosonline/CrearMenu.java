@@ -1,30 +1,26 @@
 package com.example.deivi.pedidosonline;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.icu.text.SimpleDateFormat;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.deivi.pedidosonline.utils.Data;
+import com.example.deivi.pedidosonline.utils.Methods;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -34,14 +30,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import collections.BorrarMenuAdapter;
 import collections.Menus;
-import collections.VerMenuAdapter;
 import cz.msebera.android.httpclient.Header;
 
 public class CrearMenu extends AppCompatActivity {
@@ -49,9 +42,10 @@ public class CrearMenu extends AppCompatActivity {
 
     EditText producto,precio,descripcion;
     ImageView imagen;
-    String path;
+
     ListView listcrear;
     ArrayList<Menus> list_data = new ArrayList<Menus> ();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
@@ -142,38 +136,19 @@ public class CrearMenu extends AppCompatActivity {
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
     }*/
-    public void Registrar(View view) {
-        String nombre = producto.getText().toString();
-        String pre = precio.getText().toString();
-        String des = descripcion.getText().toString();
-        if (nombre.length() == 0) {
-            Toast.makeText(this, "Debes ingresar un nombre", Toast.LENGTH_SHORT).show();
-        }
-        if (pre.length() == 0) {
-            Toast.makeText(this, "Debes ingresar un precio", Toast.LENGTH_SHORT).show();
-        }
 
-        if (des.length() == 0) {
-            Toast.makeText(this, "Debes ingresar una descripcion", Toast.LENGTH_SHORT).show();
-        }
 
-        if (nombre.length() != 0 && pre.length() != 0 && des.length() != 0 ) {
-            Toast.makeText(this, "Se Registro Correctamente", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(CrearMenu.this,VerMenu.class));
-            finish();
-
-        }
-
-    }
 
     public void sedData(){
        final EditText nombre  = findViewById(R.id.producto);
        final EditText precio  = findViewById(R.id.precioproducto);
        final EditText descripcion = findViewById(R.id.descripcion);
+       final ImageView image = findViewById (R.id.fotomenu);
         if (nombre.getText().toString().equals("") || precio.getText().toString().equals("") || descripcion.getText().toString().equals("")){
             Toast.makeText(this, "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show();
             return;
         }
+
 
 
         AsyncHttpClient client = new AsyncHttpClient();
@@ -182,9 +157,10 @@ public class CrearMenu extends AppCompatActivity {
 
         RequestParams params = new RequestParams();
 
-        params.add("nombre", nombre.getText().toString());
-        params.add("precio", precio.getText().toString());
-        params.add("descripcion",descripcion.getText().toString());
+
+        params.put("nombre", nombre.getText().toString());
+        params.put("precio", precio.getText().toString());
+        params.put("descripcion",descripcion.getText().toString());
 
         client .post(Data.REGISTER_MENUS, params, new JsonHttpResponseHandler() {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -196,10 +172,13 @@ public class CrearMenu extends AppCompatActivity {
                 try {
                     String id = response.getString("id");
                     int resp = response.getInt("resp");
-                    Data.ID_Menus = id;
+
+
+
 
                     if(resp==200){
                         String msn = response.getString("msn");
+
                         nombre.getText().clear();
                         precio.getText().clear();
                         descripcion.getText().clear();
@@ -230,7 +209,9 @@ public class CrearMenu extends AppCompatActivity {
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
                         menus.setPrecio(object.getDouble("precio"));
-                        //menus.setFoto(object.getString("foto"));
+                         menus.setFoto(object.getString("foto"));
+
+
                         list_data.add(menus);
                     }
                     BorrarMenuAdapter adapter =  new BorrarMenuAdapter(CrearMenu.this,list_data);
@@ -246,9 +227,7 @@ public class CrearMenu extends AppCompatActivity {
 
         });
 
-
-
-
     }
+
 
 }

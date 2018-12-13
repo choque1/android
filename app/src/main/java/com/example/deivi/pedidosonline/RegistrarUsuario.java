@@ -31,9 +31,9 @@ public class RegistrarUsuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_registrar_usuario);
-        name = findViewById(R.id.name1);
+        name = findViewById(R.id.namerestorant);
         ci = findViewById(R.id.ci);
-        phone = findViewById(R.id.phone1);
+        phone = findViewById(R.id.phonerestorant);
         correo1 = findViewById(R.id.correo1);
         password1 = findViewById(R.id.password1);
         crearcuenta = findViewById (R.id.crearcuenta);
@@ -90,9 +90,9 @@ public class RegistrarUsuario extends AppCompatActivity {
 
     }
     public void sedData(){
-        TextView nombre  = findViewById(R.id.name1);
+        TextView nombre  = findViewById(R.id.namerestorant);
         TextView ci  = findViewById(R.id.ci);
-        TextView telefono = findViewById(R.id.phone1);
+        TextView telefono = findViewById(R.id.phonerestorant);
         TextView email  = findViewById(R.id.correo1);
         TextView password  = findViewById(R.id.password1);
         Spinner tipo = findViewById(R.id.tipo);

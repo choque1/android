@@ -1,19 +1,22 @@
 package collections;
 
 public class Menus {
-   public String Idrestaurant;
+   public String idrestaurant;
    public String nombre;
    public Double precio;
    public String descripcion;
-   public String foto;
+
+
+
+    public String foto;
    public String id;
 
     public String getIdrestaurant() {
-        return this.Idrestaurant;
+        return this.idrestaurant;
     }
 
     public void setIdrestaurant(String idrestaurant) {
-        Idrestaurant = idrestaurant;
+        this.idrestaurant = idrestaurant;
     }
 
     public String getNombre() {

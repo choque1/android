@@ -7,7 +7,7 @@
     tools:context=".RegistrarRestaurant">
 
     <EditText
-        android:id="@+id/name1"
+        android:id="@+id/namerestorant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -32,7 +32,7 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name1" />
+        app:layout_constraintTop_toBottomOf="@+id/namerestorant" />
 
     <EditText
         android:id="@+id/propietario"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nit" />
 
     <EditText
-        android:id="@+id/phone1"
+        android:id="@+id/phonerestorant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/propietario" />
 
     <EditText
-        android:id="@+id/street"
+        android:id="@+id/streetrestorant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -75,10 +75,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone1" />
+        app:layout_constraintTop_toBottomOf="@+id/phonerestorant" />
 
     <com.google.android.gms.maps.MapView
-        android:id="@+id/MapView"
+        android:id="@+id/MapView1"
         android:layout_width="match_parent"
         android:layout_height="147dp"
         android:layout_marginStart="8dp"
@@ -87,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/street"
+        app:layout_constraintTop_toBottomOf="@+id/streetrestorant"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -98,7 +98,7 @@
         android:layout_marginBottom="8dp"
         android:text="Crear Restaurant"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MapView"
+        app:layout_constraintTop_toBottomOf="@+id/MapView1"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="136dp" />
 </android.support.constraint.ConstraintLayout>

@@ -7,7 +7,7 @@
     tools:context=".RegistrarUsuario">
 
     <EditText
-        android:id="@+id/name1"
+        android:id="@+id/namerestorant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -43,10 +43,10 @@
         android:textColorHint="#ccc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name1" />
+        app:layout_constraintTop_toBottomOf="@+id/namerestorant" />
 
     <EditText
-        android:id="@+id/phone1"
+        android:id="@+id/phonerestorant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -79,7 +79,7 @@
         android:textColorHint="#ccc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone1" />
+        app:layout_constraintTop_toBottomOf="@+id/phonerestorant" />
 
     <EditText
         android:id="@+id/password1"

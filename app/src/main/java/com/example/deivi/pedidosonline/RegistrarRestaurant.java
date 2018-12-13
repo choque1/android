@@ -49,13 +49,13 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_restaurant);
 
-        map = findViewById(R.id.MapView);
+        map = findViewById(R.id.MapView1);
         map.onCreate(savedInstanceState);
         map.onResume();
         MapsInitializer.initialize(this);
         map.getMapAsync(this);
         geocoder = new Geocoder(getBaseContext(), Locale.getDefault());
-        street = findViewById(R.id.street);
+        street = findViewById(R.id.streetrestorant);
         next = findViewById(R.id.crear);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,11 +66,11 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
         });
     }
     public void sendData () {
-        TextView name = findViewById(R.id.name1);
+        TextView name = findViewById(R.id.namerestorant);
         TextView nit = findViewById(R.id.nit);
-        TextView street = findViewById(R.id.street);
+        TextView street = findViewById(R.id.streetrestorant);
         TextView property = findViewById(R.id.propietario);
-        TextView phone = findViewById(R.id.phone1);
+        TextView phone = findViewById(R.id.phonerestorant);
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.addHeader("authorization", Data.TOKEN);
@@ -89,12 +89,16 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                AlertDialog alertDialog = new AlertDialog.Builder(RegistrarRestaurant.this).create();
                 try {
+                    String id = response.getString("id");
+                    Data.ID_RESTORANT = id;
                     String msn = response.getString("msn");
                     alertDialog.setTitle("RESPONSE SERVER");
                     alertDialog.setMessage(msn);
                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
+                                    Intent camera = new Intent(RegistrarRestaurant.this, FotoRestaurant.class);
+                                    RegistrarRestaurant.this.startActivity(camera);
                                     dialog.dismiss();
                                 }
                             });
@@ -102,8 +106,7 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-               // Intent camera = new Intent(RegistrarRestaurant.this, FotoRestaurant.class);
-                //RegistrarRestaurant.this.startActivity(camera);
+
 
                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
             }

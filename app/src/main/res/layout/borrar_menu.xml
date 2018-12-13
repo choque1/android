@@ -19,12 +19,12 @@
 
     <TextView
         android:id="@+id/nombreproducto"
-        android:layout_width="166dp"
+        android:layout_width="158dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/descripcionproducto"
         android:layout_alignLeft="@+id/descripcionproducto"
         android:layout_alignTop="@+id/imgproducto"
-        android:layout_marginEnd="0dp"
+        android:layout_marginEnd="8dp"
         android:layout_toStartOf="@+id/precioproducto"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -38,20 +38,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="@+id/bs"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="22dp"
         android:layout_toStartOf="@+id/bs"
         android:text="precio"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#ff0fa01d"
         android:textSize="18sp" />
+
     <TextView
+        android:id="@+id/bs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/precioproducto"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/precioproducto"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Bs"
-        android:id="@+id/bs"
-        android:textSize="18dp"/>
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/descripcionproducto"
@@ -74,12 +79,11 @@
         android:layout_below="@+id/precioproducto"
         android:layout_alignStart="@+id/precioproducto"
         android:layout_alignLeft="@+id/precioproducto"
-        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginStart="-6dp"
+        android:layout_marginLeft="-6dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
         android:text="borrar" />
 
 </RelativeLayout>

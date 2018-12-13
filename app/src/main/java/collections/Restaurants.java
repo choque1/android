@@ -1,18 +1,28 @@
 package collections;
 
 public class Restaurants {
-    public int id;
+    public String id;
     public String nombre;
     public String nit;
     public String propietario;
     public String calle;
     public Integer telefono;
 
-    public int getId() {
+    public String getImagen() {
+        return this.imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String imagen;
+
+    public String getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

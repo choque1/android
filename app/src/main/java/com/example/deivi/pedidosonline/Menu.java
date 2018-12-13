@@ -63,7 +63,7 @@ public class Menu extends AppCompatActivity {
                         i.putExtra("descripcion", menus.descripcion);
                         i.putExtra("precio", menus.precio);
                         // i.putExtra ("image",item.foto);
-                        finish();
+
                         startActivity(i);
 
 
@@ -86,7 +86,7 @@ public class Menu extends AppCompatActivity {
     }
     private void loadComponents() {
         AsyncHttpClient client = new AsyncHttpClient ();
-        client.get ("http://192.168.1.110:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
+        client.get ("http://192.168.1.102:7777/api/v1.0/menus",  new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 

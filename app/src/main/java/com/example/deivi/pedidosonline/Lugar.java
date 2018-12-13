@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
+import collections.ResAdapter;
 import collections.Restaurants;
 import cz.msebera.android.httpclient.Header;
 
@@ -43,7 +44,7 @@ public class Lugar extends AppCompatActivity {
                 finish();
             }
         });
-               //loadComponents();
+               loadComponents();
         list1.setOnItemClickListener (new AdapterView.OnItemClickListener () {
             @SuppressLint("ResourceType")
             @Override
@@ -53,7 +54,7 @@ public class Lugar extends AppCompatActivity {
 
                 Intent i = new Intent(Lugar.this, Menu.class);
 
-                finish();
+
                 startActivity(i);
 
 
@@ -61,7 +62,7 @@ public class Lugar extends AppCompatActivity {
         });
 
     }
-  /*  private void loadComponents() {
+   private void loadComponents() {
         AsyncHttpClient client = new AsyncHttpClient ();
         client.get ("http://192.168.1.108:7777/api/v1.0/restaurant",  new JsonHttpResponseHandler(){
             @Override
@@ -76,7 +77,7 @@ public class Lugar extends AppCompatActivity {
                   for (int i =0 ; i < jsonArray.length(); i++) {
                       Restaurants restaurants = new Restaurants();
                       JSONObject object = jsonArray.getJSONObject(i);
-                      restaurants.setId(i);
+                      restaurants.setId(object.getString("id"));
                       restaurants.setNombre(object.getString("nombre"));
                       list_data1.add(restaurants);
                   }
@@ -95,6 +96,6 @@ public class Lugar extends AppCompatActivity {
 
 
 
-    }*/
+    }
 
 }

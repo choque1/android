@@ -26,6 +26,7 @@ public class VerRestaurant extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_restaurant);
+        listares = findViewById(R.id.lisrestaurant);
         loadComponents();
     }
     private void loadComponents() {
@@ -37,17 +38,15 @@ public class VerRestaurant extends AppCompatActivity {
                 try {
                     JSONArray data = response.getJSONArray("result");
                     for (int i =0 ; i < data.length(); i++) {
-                        Restaurants restaurants1 = new Restaurants();
+                        Restaurants res =new Restaurants();
                         JSONObject object = data.getJSONObject(i);
-                        restaurants1.setId(object.getString("_id"));
-                        restaurants1.setNombre(object.getString("nombre"));
-                        restaurants1.setTelefono(object.getInt("telefono"));
-                        restaurants1.setCalle(object.getString("calle"));
-                        restaurants1.setImagen(object.getString("fotolugar"));
-                        restaurants.add(restaurants1);
+                        res.setNombre(object.getString("nombre"));
+                        res.setTelefono(object.getInt("telefono"));
+                        res.setCalle(object.getString("calle"));
+                        //menus.setFoto(object.getString("foto"));
+                        restaurants.add(res);
                     }
                     ResAdapter adapter =  new ResAdapter(VerRestaurant.this,restaurants);
-                    listares = findViewById(R.id.lisrestaurant);
                     listares.setAdapter(adapter);
 
 

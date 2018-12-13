@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.deivi.pedidosonline.utils.Data;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -60,10 +61,51 @@ public class RegistrarRestaurant extends AppCompatActivity implements OnMapReady
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Registrar();
 
                 sendData();
             }
         });
+    }
+    public void Registrar(){
+        TextView name = findViewById(R.id.namerestorant);
+        TextView nit = findViewById(R.id.nit);
+        TextView street = findViewById(R.id.streetrestorant);
+        TextView property = findViewById(R.id.propietario);
+        TextView phone = findViewById(R.id.phonerestorant);
+
+        if (name.length() == 0){
+            Toast.makeText(this, "Debes ingresar un nombre", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (nit.length() == 0){
+            Toast.makeText(this, "Debes ingresar tu CI", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (street.length() == 0){
+            Toast.makeText(this, "Debes ingresar tu telefono", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (property.length() == 0){
+            Toast.makeText(this, "Debes ingresar un correo", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (phone.length() <= 0){
+            Toast.makeText(this, "Debes ingresar minimammente 8 caracteres", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (name.length()!=0 && nit.length()!=0 && street.length()!=0 && phone.length()!=0  && property.length()!=7) {
+            Toast.makeText(this, "Se Registro Correctamente", Toast.LENGTH_SHORT).show();
+            startActivity (new Intent (RegistrarRestaurant.this, Login.class));
+
+
+        }
+
+
+
     }
     public void sendData () {
         TextView name = findViewById(R.id.namerestorant);

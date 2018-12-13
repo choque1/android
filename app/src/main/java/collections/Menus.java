@@ -3,7 +3,7 @@ package collections;
 public class Menus {
    public String idrestaurant;
    public String nombre;
-   public Double precio;
+   public int precio;
    public String descripcion;
 
 
@@ -27,11 +27,11 @@ public class Menus {
         this.nombre = nombre;
     }
 
-    public Double getPrecio() {
+    public Integer getPrecio() {
         return this.precio;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(Integer precio) {
         this.precio = precio;
     }
     public String getDescripcion() {

@@ -60,14 +60,14 @@ public class BorrarMenuAdapter extends BaseAdapter {
             LayoutInflater inflate = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflate.inflate(R.layout.borrar_menu, null);
         }
-        final ListView lista = view.findViewById(R.id.liscrear);
+
         TextView nombre = view.findViewById(R.id.nombreproducto);
         TextView descripcion = view.findViewById(R.id.descripcionproducto);
         TextView precio = view.findViewById(R.id.precioproducto);
         ImageView image = view.findViewById(R.id.imgproducto);
         final String id;
         Button borrar = view.findViewById(R.id.borrarproducto);
-        Glide.with(context).load("http://192.168.1.102:7777/api/v1.0/" + menus.get(i).getFoto()).into(image);
+      //  Glide.with(context).load("http://192.168.1.102:7777/api/v1.0/" + menus.get(i).getFoto()).into(image);
         nombre.setText(this.menus.get(i).getNombre());
         descripcion.setText(this.menus.get(i).getDescripcion());
         precio.setText(this.menus.get(i).getPrecio().toString());

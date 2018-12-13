@@ -208,8 +208,8 @@ public class CrearMenu extends AppCompatActivity {
                         menus.setId(object.getString("_id"));
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
-                        menus.setPrecio(object.getDouble("precio"));
-                         menus.setFoto(object.getString("foto"));
+                        menus.setPrecio(object.getInt("precio"));
+                        // menus.setFoto(object.getString("foto"));
 
 
                         list_data.add(menus);

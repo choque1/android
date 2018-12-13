@@ -45,7 +45,7 @@ public class RegistrarUsuario extends AppCompatActivity {
         crearcuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Registrar();
                 sedData();
             }
 
@@ -54,7 +54,7 @@ public class RegistrarUsuario extends AppCompatActivity {
 
 
     }
-    public void Registrar(View view){
+    public void Registrar(){
         String name1 = name.getText().toString();
         String ci1 = ci.getText().toString();
         String phone1 = phone.getText().toString();
@@ -63,26 +63,31 @@ public class RegistrarUsuario extends AppCompatActivity {
 
         if (name1.length() == 0){
             Toast.makeText(this, "Debes ingresar un nombre", Toast.LENGTH_SHORT).show();
+            return;
         }
         if (ci1.length() == 0){
             Toast.makeText(this, "Debes ingresar tu CI", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         if (phone1.length() == 0){
             Toast.makeText(this, "Debes ingresar tu telefono", Toast.LENGTH_SHORT).show();
+            return;
         }
 
         if (correo11.length() == 0){
             Toast.makeText(this, "Debes ingresar un correo", Toast.LENGTH_SHORT).show();
+            return;
         }
-        if (password11.length() == 0){
-            Toast.makeText(this, "Debes ingresar un password", Toast.LENGTH_SHORT).show();
+        if (password11.length() <= 7){
+            Toast.makeText(this, "Debes ingresar minimammente 8 caracteres", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        if (name1.length()!=0 && ci1.length()!=0 && phone1.length()!=0 && correo11.length()!=0  && password11.length()!=0) {
+        if (name1.length()!=0 && ci1.length()!=0 && phone1.length()!=0 && correo11.length()!=0  && password11.length()!=7) {
             Toast.makeText(this, "Se Registro Correctamente", Toast.LENGTH_SHORT).show();
             startActivity (new Intent (RegistrarUsuario.this, Login.class));
-            finish ();
+
 
         }
 

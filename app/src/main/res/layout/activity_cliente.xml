@@ -84,7 +84,7 @@
         android:id="@+id/reapedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="64dp"
         android:text="Realizar pedido"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tipo" />
@@ -99,7 +99,8 @@
         android:text="Editar cuenta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reapedido" />
+        app:layout_constraintTop_toBottomOf="@+id/reapedido"
+        app:layout_constraintVertical_bias="0.506" />
 
     <Button
         android:id="@+id/elicuenta"

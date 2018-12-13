@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         android:text="Crear restaurant"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tipo" />
@@ -101,7 +101,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/crestaurant"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.132" />
 
     <Button
         android:id="@+id/elicuenta1"
@@ -127,8 +127,8 @@
         android:text="Controlar pedidos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edicuenta1"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintVertical_bias="0.535" />
 </android.support.constraint.ConstraintLayout>

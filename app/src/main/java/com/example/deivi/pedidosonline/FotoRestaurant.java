@@ -75,7 +75,7 @@ public class FotoRestaurant extends AppCompatActivity {
                     try {
                         params.put("img", img);
 
-                        client.post(Data.UPLOAD_RESTORANT+"/"+Data.ID_RESTORANT, params, new JsonHttpResponseHandler(){
+                        client.post(Data.UPLOAD_RESTORANT, params, new JsonHttpResponseHandler(){
                             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                                 Toast.makeText(FotoRestaurant.this, "EXITO", Toast.LENGTH_LONG).show();
                                 //AsyncHttpClient.log.w(LOG_TAG, "onSuccess(int, Header[], JSONObject) was not overriden, but callback was received");
@@ -84,6 +84,7 @@ public class FotoRestaurant extends AppCompatActivity {
 
                     } catch(FileNotFoundException e) {}
                 }
+                startActivity(new Intent(FotoRestaurant.this,InfoRestaurant.class));
             }
         });
 

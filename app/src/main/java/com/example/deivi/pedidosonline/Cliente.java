@@ -72,7 +72,7 @@ public class Cliente extends AppCompatActivity {
                 startActivity(t);
                 /*Bundle b=getIntent().getExtras();
                 Toast.makeText(getApplicationContext(),b.getString("nombreMod")+"",Toast.LENGTH_LONG).show();*/
-                finish();
+
             }
         });
 
@@ -82,7 +82,7 @@ public class Cliente extends AppCompatActivity {
 
                 sedData();
                 startActivity(new Intent(Cliente.this,Login.class));
-                finish();
+
 
             }
         });

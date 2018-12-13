@@ -34,18 +34,19 @@ public class Carrito extends AppCompatActivity {
 
             }
         });
+        StaticData.LISTAPARCIAL.clear();
 
     }
     @Override
     protected void onResume() {
+
         if (StaticData.LISTAPARCIAL == null){
             StaticData.LISTAPARCIAL = new ArrayList<>();
         }
         bundle = getIntent().getExtras();
         Menus item2 = new Menus();
         item2.setNombre (bundle.getString("nombre"));
-        item2.setDescripcion (bundle.getString("descripcion"));
-        item2.setPrecio(bundle.getDouble("precio"));
+        item2.setPrecio(bundle.getInt("precio"));
         StaticData.LISTAPARCIAL.add (item2);
         list1 = findViewById (R.id.pedidos);
         adapter = new MenuAdapter(this, StaticData.LISTAPARCIAL);

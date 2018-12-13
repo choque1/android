@@ -33,28 +33,27 @@ public class InfoRestaurant extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(InfoRestaurant.this,CrearMenu.class));
-                finish();
+
             }
         });
         ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(InfoRestaurant.this,VerMenu.class));
-                finish();
+
             }
         });
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(InfoRestaurant.this,EditarMenu.class));
-                finish();
             }
         });
         ver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(InfoRestaurant.this,EliminarMenu.class));
-                finish();
+
             }
         });
     }

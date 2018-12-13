@@ -7,8 +7,9 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="238dp"
-        android:layout_height="174dp"
+        android:layout_height="175dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -19,18 +20,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/cantidad"
+            android:id="@+id/editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="Cantidad"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="79dp" />
-
+            android:inputType="number"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="65dp" />
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

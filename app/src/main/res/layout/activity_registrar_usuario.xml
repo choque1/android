@@ -135,7 +135,6 @@
         android:layout_marginBottom="8dp"
 
         android:elevation="5dp"
-        android:onClick="Registrar"
         android:text="Crear Cuenta"
 
         android:textSize="16sp"

@@ -23,10 +23,6 @@ import cz.msebera.android.httpclient.Header;
 
 public class EditarAdmi extends AppCompatActivity {
     Button guardar1;
-    EditText nom;
-    EditText c;
-    EditText f;
-    EditText e;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,64 +49,7 @@ public class EditarAdmi extends AppCompatActivity {
         });
     }
 
-    /*private void loadData() {
 
-        AsyncHttpClient client = new AsyncHttpClient();
-
-        client.get("http://192.168.1.106:7777/api/v1.0/cliente", null, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONArray timeline) {
-                JSONArray aux = timeline;
-                Bundle x = getIntent().getExtras();
-                //email de la actividad
-                String com = x.getString("email");
-                try {
-                    JSONArray jsonArray = timeline;
-                    //https://es.androids.help/q28175
-                    //ArrayList<String> datos=new ArrayList<>();
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        try {
-                            JSONObject ob = (JSONObject) jsonArray.getJSONObject(i);
-                            //email del servicio
-                            String em = (String) ob.getString("email");
-                            if (com.equals(em)) {
-                                /*nombre = (String) ob.getString("nombre");
-                                ci = (String) ob.getString("ci");
-                                fono = (String) ob.getString("telefono");
-                                corr = com;
-                                nom = findViewById(R.id.nombre4);
-                                nom.setText((String) ob.getString("nombre"));
-                                c = findViewById(R.id.ci4);
-                                c.setText(ob.getString("ci"));
-                                f = findViewById(R.id.phone4);
-                                f.setText(ob.getString("telefono"));
-                                e = findViewById(R.id.correo4);
-                                e.setText(com);
-                                // Toast.makeText(getApplicationContext(),nombre+" "+ci+" ",Toast.LENGTH_LONG).show();
-                            }
-                        } catch (Exception e) {
-                            Toast.makeText(getApplicationContext(), "no rescato datos", Toast.LENGTH_LONG).show();
-                        }
-
-                    }
-
-
-                } catch (Exception e) {
-
-                }
-                ;
-            }
-
-
-        });
-    }*/
-
-    //editar menu
     public void sedData() {
        TextView  nombre4 = findViewById(R.id.nombre4);
         TextView ci4 = findViewById(R.id.ci4);
@@ -160,7 +99,7 @@ public class EditarAdmi extends AppCompatActivity {
 
 
                                 startActivity(intent);
-                                finish();
+
                             }
                         });
                         alertDialog.show();

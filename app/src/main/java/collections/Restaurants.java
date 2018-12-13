@@ -7,7 +7,7 @@ public class Restaurants {
     public String propietario;
     public String calle;
     public Integer telefono;
-
+    public String imagen;
     public String getImagen() {
         return this.imagen;
     }
@@ -16,7 +16,7 @@ public class Restaurants {
         this.imagen = imagen;
     }
 
-    public String imagen;
+
 
     public String getId() {
         return this.id;

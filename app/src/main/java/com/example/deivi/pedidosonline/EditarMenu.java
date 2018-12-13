@@ -40,7 +40,7 @@ public class EditarMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EditarMenu.this,InfoRestaurant.class));
-                finish();
+
             }
         });
         loadComponents();
@@ -56,7 +56,7 @@ public class EditarMenu extends AppCompatActivity {
                 i.putExtra ("descripcion", menus.descripcion);
                 i.putExtra ("precio",menus.precio);
                 //i.putExtra("_id", menus.id);
-                finish();
+
                 startActivity(i);
 
 
@@ -79,7 +79,7 @@ public class EditarMenu extends AppCompatActivity {
                         menus.setId(object.getString("_id"));
                         menus.setNombre(object.getString("nombre"));
                         menus.setDescripcion(object.getString("descripcion"));
-                        menus.setPrecio(object.getDouble("precio"));
+                        menus.setPrecio(object.getInt("precio"));
                         //menus.setFoto(object.getString("foto"));
                         list_data.add(menus);
                     }

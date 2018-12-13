@@ -65,7 +65,7 @@ public class ResAdapter extends BaseAdapter {
         Button eliminar = view.findViewById(R.id.eliminar);
         Button editar = view.findViewById(R.id.editar);
         final String id;
-        Glide.with(context).load("http://192.168.1.102:7777/public/avatars" + restaurants.get(position).getImagen()).into(image);
+        //Glide.with(context).load("http://192.168.1.102:7777/public/avatars" + restaurants.get(position).getImagen()).into(image);
         nombre.setText (this.restaurants.get (position).getNombre ());
         calle.setText(this.restaurants.get(position).getCalle());
         telefono.setText(this.restaurants.get(position).getTelefono());

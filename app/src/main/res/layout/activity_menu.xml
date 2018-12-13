@@ -40,7 +40,7 @@
 
         android:id="@+id/lismenu"
         android:layout_width="wrap_content"
-        android:layout_height="260dp"
+        android:layout_height="414dp"
         android:layout_below="@+id/atras"
 
         android:layout_marginTop="200dp"

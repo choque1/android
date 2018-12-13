@@ -20,7 +20,7 @@ import cz.msebera.android.httpclient.Header;
 public class Admi extends AppCompatActivity {
     Button crearres,veres;
     Button edicuenta1;
-    Button elicuenta1;
+    Button elicuenta1,controlar;
     TextView nombre;
     TextView ci;
     TextView telefono;
@@ -35,6 +35,7 @@ public class Admi extends AppCompatActivity {
         crearres =  findViewById(R.id.crestaurant);
         veres =  findViewById(R.id.verestaurant);
         edicuenta1 = findViewById(R.id.edicuenta1);
+        controlar = findViewById(R.id.irpedidos);
         nombre=(TextView) findViewById(R.id.nombre2);
         nombre.setText( getIntent().getExtras().getString("nombre"));
         ci=(TextView) findViewById(R.id.ci2);
@@ -48,19 +49,25 @@ public class Admi extends AppCompatActivity {
 
 
 
+        controlar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Admi.this,InfoPedidos.class));
+            }
+        });
 
         crearres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Admi.this,RegistrarRestaurant.class));
-                finish();
+
             }
         });
         veres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Admi.this,InfoRestaurant.class));
-                finish();
+                startActivity(new Intent(Admi.this,VerRestaurant.class));
+
             }
         });
         edicuenta1.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +82,7 @@ public class Admi extends AppCompatActivity {
                 startActivity(t);
                 /*Bundle b=getIntent().getExtras();
                 Toast.makeText(getApplicationContext(),b.getString("nombreMod")+"",Toast.LENGTH_LONG).show();*/
-                finish();
+
             }
         });
         elicuenta1.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +91,6 @@ public class Admi extends AppCompatActivity {
 
                 sedData();
                 startActivity(new Intent(Admi.this,Login.class));
-                finish();
 
             }
         });

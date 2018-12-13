@@ -26,11 +26,7 @@
             android:name=".Login"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".FotoRestaurant" />
@@ -45,12 +41,18 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".VerMenu" />
+        <activity android:name=".VerMenu">
+
+        </activity>
         <activity android:name=".EditarMenu"></activity>
         <activity android:name=".Editar1" />
         <activity android:name=".Lugar" />
         <activity android:name=".Menu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Carrito" />
         <activity android:name=".Pedidos" />
@@ -82,6 +84,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".VerRestaurant">
+
 
         </activity>
     </application>

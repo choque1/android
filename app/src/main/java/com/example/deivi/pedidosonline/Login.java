@@ -29,9 +29,6 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         btn_login = findViewById (R.id.login);
         registrarse = findViewById(R.id.registrarse);
-        //final TextView email=(TextView)findViewById(R.id.correo);
-        //final TextView password=(TextView)findViewById(R.id.password);
-        //email.setText( getIntent().getExtras().getString("email"));
         registrarse.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -47,7 +44,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
 
                 sendData();
-                Toast.makeText(Login.this, "saliendo del sendata", Toast.LENGTH_SHORT).show();
+
             }
 
         });
@@ -56,6 +53,12 @@ public class Login extends AppCompatActivity {
     public void sendData(){
         TextView correo  = findViewById(R.id.correo);
         TextView password  = findViewById(R.id.password);
+        if (correo.getText().toString().equals(" ")  || password.getText().toString().equals("")){
+            Toast.makeText(this,"Es necesario llenar los dos campos",Toast.LENGTH_SHORT).show();
+            return;
+
+        }
+
 
         AsyncHttpClient login = new AsyncHttpClient();
 

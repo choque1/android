@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".Menu">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/chata"
+        android:scaleType="centerCrop"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d8000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
@@ -15,10 +31,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="MENU"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-
-        android:textSize="30sp"
+        android:background="@drawable/input"
+        android:textColor="#fff"
+        android:paddingLeft="10dp"
+        android:paddingTop="9dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="4dp"
         android:textStyle="bold"
+        android:textSize="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         app:layout_constraintEnd_toStartOf="@+id/atras"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

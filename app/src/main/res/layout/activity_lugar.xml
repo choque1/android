@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".Lugar">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/image"
+        android:scaleType="centerCrop"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d80b0000"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="276dp"
@@ -13,6 +29,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="SELECCIONE RESTAURANT"
+        android:textColor="#fff"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
